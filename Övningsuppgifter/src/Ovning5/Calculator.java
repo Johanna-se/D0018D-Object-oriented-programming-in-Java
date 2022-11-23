@@ -1,4 +1,4 @@
-package Ovning6;
+package Ovning5;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
