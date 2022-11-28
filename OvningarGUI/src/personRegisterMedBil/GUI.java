@@ -44,7 +44,7 @@ public class GUI extends JFrame
 	private void createComponents()
 	{
 		logic = new Logic();
-		// Lägger till testpersoner och bilar för att föränkla testning����
+		// Lägger till testpersoner och bilar för att föränkla testning
 		logic.addPerson("Stina", "070-999 88 77");
 		logic.addPerson("Pelle", "070-123 45 67");
 		logic.addCar(0, "Volvo", "Gr n", "AAA111");
