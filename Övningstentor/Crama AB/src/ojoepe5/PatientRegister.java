@@ -1,0 +1,160 @@
+/**
+* Klass för att hantera företagets patienter. Använder sig av klassen Patient för detta
+* Patient lagras i en array.
+* 
+* Psudokod:
+* Konstruktor
+* Metod för att hämta alla patienter
+* Metod för att hämta en patient
+* Metod för att ta medicin
+* Metod ta bort färdig medicin
+* 
+* 
+* @author Johanna Petersson, ojoepe-5
+*/
+
+package ojoepe5;
+
+import java.time.LocalTime;
+import java.util.ArrayList;
+
+public class PatientRegister 
+{
+	//Variabler
+    private ArrayList<Patient> patientLista;
+    
+    //konstruktor
+    public PatientRegister ()
+    {
+    	patientLista = new ArrayList<Patient>();
+    }
+    
+    
+    //-------------------------------Metoder för patienter ----------------------------------- 
+    
+    /**
+    * Metod för att returnera information om alla bolagets patienter
+    * @return ArrayList<String> - array med alla bankens kunder ("7505121231 Lotta Larsson") //KOLLA!!!!!
+    */
+    public ArrayList<String> hamtaAllaPatienter()
+    {
+        //variabler
+        ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+        String patientInfo;
+        
+        //Loop-igenom array med kunder och lagra info i retur arrayen OBS Uppdaterad efter feedback från uppgift 1 källa:https://www.geeksforgeeks.org/for-each-loop-in-java/
+        for (Patient patient : patientLista)
+        {
+        	patientInfo = patient.getNamn();
+            arrayAttReturnera.add(patientInfo);
+        }
+        
+        return arrayAttReturnera;
+    }
+    
+    /**
+    * Metod för att skapa en patient. Jag har här antagit att alla patienter har olika namn och kollar innan om patienten (namnet) finns sedan tidigare, om ja returnera falskt. 
+    * @param String namn - patientens namn
+    * @return boolean skapad Ja/Nej. Om ja - patienten skapades. Om Nej - patienten med det namnet finns sedan tidigare
+    */
+    public boolean skapaPatienter(String namn)
+    {
+    	//Kontrollera om finns sedan tidigare (om den gör det returneras position i kundlista, om ej -1)
+        int finnsPatient;
+        finnsPatient = finnsNamn(namn);
+        
+        //Om det gör det, returnera false
+        if (finnsPatient >= 0)
+        {
+            return false;
+        }
+        
+        //Om patienten ej existerar sedan tidigare, skapa och lägg till i listan. 
+        Patient patient = new Patient(namn);
+        patientLista.add(patient);
+
+        return true;
+    	
+    }
+    
+    //---------------------------------------Metoder för medicin -----------------------------------------------
+    /**
+    * Metod för att lägga till en medicin till en patient. 
+    * @param String namn - patientens namn
+    * @param String medicinNamn - vilken medicin
+    * @param int mangd - mängden av medicin som ska tas
+    * @param long tid - vilken tid medicinen ska tas
+    * @param int antal - hur många gånger medicinen ska tas
+    * @param LocalTime tidNu - utgår från vad klockan inom programmet är nu
+    * @return boolean skapad Ja/Nej. Om ja - patienten skapades. Om Nej - patienten med det namnet finns sedan tidigare
+    */
+    public boolean skapaMedicin(String namn, String medicinNamn, int mangd, long tid, int antal, LocalTime tidNu)
+    {
+    	//Kontrollera om finns sedan tidigare (om den gör det returneras position i kundlista, om ej -1)
+        int patientPos;
+        patientPos = finnsNamn(namn);
+        
+        //Om det gör det, returnera false
+        if (patientPos < 0)
+        {
+            return false;
+        }
+        
+        //Om patienten ej existerar sedan tidigare, skapa och lägg till i medicinen. OBS! Jag kontrollerar inte om patienten redan har samma medicin inlagg sedan tidigare
+        patientLista.get(patientPos).skapaMedicin(medicinNamn, mangd, tid, antal, tidNu);
+
+        return true;
+    	
+    }
+    
+    /**
+    * Metod för att lägga hämta en patients mediciner 
+    * @param String namn - patientens namn
+    * @return ArrayList<String> - Lista med patient namn + medicin
+    */
+    public ArrayList<String> hamtaMedicinLista(String namn)
+    {
+    	//Variabler
+    	int patientPos;
+    	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+    	
+    	//Hitta patienten
+        patientPos = finnsNamn(namn);
+        
+        
+        //Om det gör det, returnera false
+        if (patientPos < 0)
+        {
+        	System.out.println("Patient hittades inte");
+        	return arrayAttReturnera; //om kund ej finns returnera tom array
+        }
+        
+        //Om patienten finns hämta listan
+        arrayAttReturnera = patientLista.get(patientPos).hamtaMedicinLista();
+
+        return arrayAttReturnera;
+    }
+
+
+	//-----------------------------------------Privata Metoder -------------------------------------------------    
+	
+	/**
+	* Privat metod för att kolla om patienten med samma namn finns sedan tidigare 
+	* @param String namn, patientens namn
+	* @return int, om patienten finns returnera position i lista, om ej returnera -1
+	*/
+	private int finnsNamn(String namn)
+	{
+	    //Loopa igenom patientlista
+	    for (Patient patient : patientLista)
+	    {
+	        if (namn.equals(patient.getNamn()))
+	        {
+	            return patientLista.indexOf(patient); //Källa: https://www.tutorialspoint.com/get-the-location-of-an-element-in-java-arraylist
+	        }
+	    }
+	    
+	    //Om loopen ej hittar 
+	    return -1;
+	}
+}
