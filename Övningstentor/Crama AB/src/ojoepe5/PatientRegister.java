@@ -53,6 +53,35 @@ public class PatientRegister
     }
     
     /**
+    * Metod för att returnera information om alla bolagets patienter som har en medicin inlaggd. Saknas det medicin så 
+    * @return ArrayList<String> - array med alla bankens kunder ("7505121231 Lotta Larsson") //KOLLA!!!!!
+    */
+    public ArrayList<String> hamtaAllaPatienterOchMedicin()
+    {
+        //variabler
+        ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+        ArrayList<String> tempArray = new ArrayList<String>();
+        
+        //Loop-igenom array med patienter, hämta dessas medicinlista 
+        for (Patient patient : patientLista)
+        {
+        	//Hämta medicinlista för patient
+        	tempArray = hamtaMedicinLista(patient.getNamn());
+        	
+        	//Kolla om patienten saknar medicin (arrayen är då tom). Om så, lägg till patientens namn endast
+        	if (tempArray.isEmpty())
+        	{
+        		arrayAttReturnera.add(patient.getNamn());
+        	}
+        	
+        	//Lägg till arrayen
+        	arrayAttReturnera.addAll(tempArray); //Källa: https://www.geeksforgeeks.org/join-two-arraylists-in-java/
+        }
+        
+        return arrayAttReturnera;
+    }
+    
+    /**
     * Metod för att skapa en patient. Jag har här antagit att alla patienter har olika namn och kollar innan om patienten (namnet) finns sedan tidigare, om ja returnera falskt. 
     * @param String namn - patientens namn
     * @return boolean skapad Ja/Nej. Om ja - patienten skapades. Om Nej - patienten med det namnet finns sedan tidigare
@@ -125,7 +154,6 @@ public class PatientRegister
         //Om det gör det, returnera false
         if (patientPos < 0)
         {
-        	System.out.println("Patient hittades inte");
         	return arrayAttReturnera; //om kund ej finns returnera tom array
         }
         

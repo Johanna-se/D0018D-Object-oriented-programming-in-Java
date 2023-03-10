@@ -16,6 +16,7 @@ public class TestKlass
 		
 		//Skapa variabler
 		ArrayList<String> patientLista = new ArrayList<String>();
+		ArrayList<String> patientOMedicinLista = new ArrayList<String>();
 		boolean patientSkapad = false;
 		ArrayList<String> medicinLista = new ArrayList<String>();
 		
@@ -27,6 +28,12 @@ public class TestKlass
 		patientSkapad = patientRegister.skapaPatienter("Anna Andersson");
 		System.out.println("Skapa Anna Andersson igen (false): " + patientSkapad); 
 		
+		
+		
+		
+		//Nytt TEST
+		System.out.println("");
+	
 		//Lägg till fler patienter
 		patientSkapad = patientRegister.skapaPatienter("Bettan Bertilsson");
 		System.out.println("Skapa Bettan Bertilsson (true): " + patientSkapad);
@@ -41,12 +48,24 @@ public class TestKlass
 			System.out.println("Printa från lista: " + patient); 
 		}
 		
+		
+		
+		
+		//Nytt TEST
+		System.out.println("");
+		
 		//Testa tidsklassen
 		System.out.println("Klockan är (12.00): " + klockan.getTid());
 		
 		//Lägg till 5 min
 		klockan.laggTillFemMin();
 		System.out.println("Klockan är (12.05): " + klockan.getTid());
+		
+		
+		
+		
+		//Nytt TEST
+		System.out.println("");
 		
 		//Skapa en medicin för patient Anna Andersson
 		patientRegister.skapaMedicin("Anna Andersson", "Alvedon", 200, 10L, 3, klockan.getTid());
@@ -58,6 +77,11 @@ public class TestKlass
 		{
 			System.out.println(string);
 		}
+		
+		
+		
+		//Nytt TEST
+		System.out.println("");
 		
 		//Testa tidsklassen
 		System.out.println("Klockan är (12.05): " + klockan.getTid());
@@ -75,6 +99,36 @@ public class TestKlass
 		
 		//Testa tidsklassen
 		System.out.println("Klockan är (12.10): " + klockan.getTid());
+		
+		
+		
+		//Nytt TEST
+		System.out.println("");
+		
+		//Hämta lista över alla patienter samt deras mediciner
+		patientOMedicinLista = patientRegister.hamtaAllaPatienterOchMedicin();
+		
+		//Printa listan
+		System.out.println("Printa patientOMedicinlista :");
+		for (String string : patientOMedicinLista)
+		{
+			System.out.println(string);
+		}
+		
+		
+		
+		//Nytt TEST
+		System.out.println("");
+		
+		//Lägg till medicin för övriga två patienter och printa listan igen
+		patientRegister.skapaMedicin("Bettan Bertilsson", "Hallom", 500, 60L, 4, klockan.getTid());
+		patientRegister.skapaMedicin("Cecilia Cerdersson", "Alvedon", 500, 80L, 2, klockan.getTid());
+		patientOMedicinLista = patientRegister.hamtaAllaPatienterOchMedicin();
+		System.out.println("Printa patientOMedicinlista :");
+		for (String string : patientOMedicinLista)
+		{
+			System.out.println(string);
+		}
 		
 		
 
