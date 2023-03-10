@@ -353,7 +353,7 @@ public class GUI extends JFrame
 			// Sätter info till personTextLabel
 			personTextLabel.setText(info);
 			
-			// Sätter info även till personField��
+			// Sätter info även till personField
 			personField.setText(info);
 		}
 	}
