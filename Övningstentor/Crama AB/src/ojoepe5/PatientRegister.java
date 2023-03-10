@@ -17,6 +17,7 @@ package ojoepe5;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PatientRegister 
 {
@@ -56,11 +57,12 @@ public class PatientRegister
     * Metod för att returnera information om alla bolagets patienter som har en medicin inlaggd. Saknas det medicin så 
     * @return ArrayList<String> - array med alla patienter och deras mediciner "Anna Andersson Alvedon 200ml 12:15"
     */
-    public ArrayList<String> hamtaAllaPatienterOchMedicin()
+    public ArrayList<ArrayList<String>> hamtaAllaPatienterOchMedicin()
     {
         //variabler
-        ArrayList<String> arrayAttReturnera = new ArrayList<String>();
-        ArrayList<String> tempArray = new ArrayList<String>();
+        ArrayList<ArrayList<String>> arrayAttReturnera = new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<String>> tempArray = new ArrayList<ArrayList<String>>();
+        ArrayList<String> splitArray = new ArrayList<String>();
         
         //Loop-igenom array med patienter, hämta dessas medicinlista 
         for (Patient patient : patientLista)
@@ -71,11 +73,17 @@ public class PatientRegister
         	//Kolla om patienten saknar medicin (arrayen är då tom). Om så, lägg till patientens namn endast
         	if (tempArray.isEmpty())
         	{
-        		arrayAttReturnera.add(patient.getNamn() + " *" + " *" + " *");
+        		splitArray.add(patient.getNamn());
+        		splitArray.add(" *");
+        		splitArray.add(" *");
+        		splitArray.add(" *");
+        		
+        		//Lägg till arrayen
+        		tempArray.add(splitArray); //Källa: https://www.geeksforgeeks.org/arraylist-of-arraylist-in-java/
         	}
         	
         	//Lägg till arrayen
-        	arrayAttReturnera.addAll(tempArray); //Källa: https://www.geeksforgeeks.org/join-two-arraylists-in-java/
+        	arrayAttReturnera.addAll(tempArray); //Källa: https://www.geeksforgeeks.org/arraylist-of-arraylist-in-java/
         }
         
         return arrayAttReturnera;
@@ -142,11 +150,11 @@ public class PatientRegister
     * @param String namn - patientens namn
     * @return ArrayList<String> - Lista med patient namn + medicin
     */
-    public ArrayList<String> hamtaMedicinLista(String namn)
+    public ArrayList<ArrayList<String>> hamtaMedicinLista(String namn)
     {
     	//Variabler
     	int patientPos;
-    	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+    	ArrayList<ArrayList<String>> arrayAttReturnera = new ArrayList<ArrayList<String>>();
     	
     	//Hitta patienten
         patientPos = finnsNamn(namn);
@@ -213,5 +221,25 @@ public class PatientRegister
 	    
 	    //Om loopen ej hittar 
 	    return -1;
+	}
+	
+	/**
+	* Privat metod för att sortera kundlista utifrån vilken tid medicinen ska tas
+	* @param ArrayList<String> kundLista - osorterad lista
+	* @return ArrayList<String> - sorterad lista
+	*/
+	//private ArrayList<String> orteraListaPaTid(ArrayList<String> kundLista)
+	{
+	    //Loopa igenom patientlista
+	    //for (Patient patient : patientLista)
+	    {
+	        //if (namn.equals(patient.getNamn()))
+	        {
+	            //return patientLista.indexOf(patient); //Källa: https://www.tutorialspoint.com/get-the-location-of-an-element-in-java-arraylist
+	        }
+	    }
+	    
+	    //Om loopen ej hittar 
+	    //return -1;
 	}
 }
