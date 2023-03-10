@@ -100,7 +100,7 @@ public class TestKlass
 		System.out.println("Printa medicinlista för Anna Andersson, bör ha två rader:");
 		for (String string : medicinLista)
 		{
-			System.out.print(string + " ");
+			System.out.println(string);
 		}
 		
 		//Testa tidsklassen
@@ -118,7 +118,7 @@ public class TestKlass
 		System.out.println("Printa patientOMedicinlista :");
 		for (String string : patientOMedicinLista)
 		{
-			System.out.print(string + " ");
+			System.out.println(string);
 		}
 		
 		
@@ -133,7 +133,7 @@ public class TestKlass
 		System.out.println("Printa patientOMedicinlista :");
 		for (String string : patientOMedicinLista)
 		{
-			System.out.print(string + " ");
+			System.out.println(string);
 		}
 
 		
