@@ -54,7 +54,7 @@ public class PatientRegister
     
     /**
     * Metod för att returnera information om alla bolagets patienter som har en medicin inlaggd. Saknas det medicin så 
-    * @return ArrayList<String> - array med alla bankens kunder ("7505121231 Lotta Larsson") //KOLLA!!!!!
+    * @return ArrayList<String> - array med alla patienter och deras mediciner "Anna Andersson Alvedon 200ml 12:15"
     */
     public ArrayList<String> hamtaAllaPatienterOchMedicin()
     {
@@ -71,7 +71,7 @@ public class PatientRegister
         	//Kolla om patienten saknar medicin (arrayen är då tom). Om så, lägg till patientens namn endast
         	if (tempArray.isEmpty())
         	{
-        		arrayAttReturnera.add(patient.getNamn());
+        		arrayAttReturnera.add(patient.getNamn() + " *" + " *" + " *");
         	}
         	
         	//Lägg till arrayen
@@ -122,6 +122,7 @@ public class PatientRegister
     	//Kontrollera om finns sedan tidigare (om den gör det returneras position i kundlista, om ej -1)
         int patientPos;
         patientPos = finnsNamn(namn);
+        boolean kontroll;
         
         //Om det gör det, returnera false
         if (patientPos < 0)
@@ -129,10 +130,10 @@ public class PatientRegister
             return false;
         }
         
-        //Om patienten ej existerar sedan tidigare, skapa och lägg till i medicinen. OBS! Jag kontrollerar inte om patienten redan har samma medicin inlagg sedan tidigare
-        patientLista.get(patientPos).skapaMedicin(medicinNamn, mangd, tid, antal, tidNu);
+        //Om patienten ej existerar sedan tidigare, skapa och lägg till i medicinen. 
+        kontroll = patientLista.get(patientPos).skapaMedicin(medicinNamn, mangd, tid, antal, tidNu);
 
-        return true;
+        return kontroll; //Är false om patienten har medicinen sedan tidigare och true om den skapades
     	
     }
     
@@ -161,6 +162,34 @@ public class PatientRegister
         arrayAttReturnera = patientLista.get(patientPos).hamtaMedicinLista();
 
         return arrayAttReturnera;
+    }
+    
+    /**
+    * Metod för att ta medicin
+    * @param String namn - patientens namn
+    * @param String medicinNamn - medicinen som ska tas namn
+    * @return boolean - medicin tagen ja/nej
+    */
+    //public boolean taMedicin(String namn, String medicinNamn)
+    {
+    	//Variabler
+    	//int patientPos;
+    	//ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+    	
+    	//Hitta patienten
+        //patientPos = finnsNamn(namn);
+        
+        
+        //Om det gör det, returnera false
+        //if (patientPos < 0)
+        {
+        	//return arrayAttReturnera; //om kund ej finns returnera tom array
+        }
+        
+        //Om patienten finns hämta listan
+        //arrayAttReturnera = patientLista.get(patientPos).hamtaMedicinLista();
+
+        //return arrayAttReturnera;
     }
 
 

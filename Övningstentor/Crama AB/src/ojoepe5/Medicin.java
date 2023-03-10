@@ -30,6 +30,14 @@ public class Medicin
     	tidAttTaMedicin = tidNu.plusMinutes(intervall); //Första gången medicinen ska tas
     }
     
+    //-----------------------------------------------Get metoder--------------------------------------------------    
+    
+    public String medicinNamn()
+    {
+        return medicinNamn;
+    }
+    
+    
     //-----------------------------------------------metoder--------------------------------------------------
     /**
 	* Metod för att skriva över toString

@@ -48,14 +48,29 @@ public class Patient
     * @param int antal - hur många gånger medicinen ska tas
     * @param LocalTime tidNu - utgår från vad klockan inom programmet är nu för att skapa logg när medicin ska tas
     */
-    public void skapaMedicin(String medicinNamn, int mangd, long tid, int antal, LocalTime tidNu)
+    public boolean skapaMedicin(String medicinNamn, int mangd, long tid, int antal, LocalTime tidNu)
     {
+    	//variabler
+    	String kontroll;
+    	
+    	//Kolla så att patienten inte redan har medicinen
+    	for (Medicin medicin : medicinList)
+    	{
+    		kontroll = medicin.medicinNamn();
+    		
+    		if (kontroll.equals(medicinNamn))
+    		{
+    			return false; //Medicinen finns sedan tidigare
+    		}
+    	}
     	
     	//Skapa medicinen
     	Medicin medicin = new Medicin(medicinNamn, mangd, tid, antal, tidNu);
     	
     	//Lägg till i listan
     	medicinList.add(medicin);
+    	
+    	return true;
     }
     
     /**

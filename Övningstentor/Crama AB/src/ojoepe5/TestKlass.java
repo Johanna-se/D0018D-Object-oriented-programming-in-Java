@@ -18,6 +18,7 @@ public class TestKlass
 		ArrayList<String> patientLista = new ArrayList<String>();
 		ArrayList<String> patientOMedicinLista = new ArrayList<String>();
 		boolean patientSkapad = false;
+		boolean medicinSkapad = false;
 		ArrayList<String> medicinLista = new ArrayList<String>();
 		
 		//Prova att skapa patient, printa svar
@@ -68,7 +69,8 @@ public class TestKlass
 		System.out.println("");
 		
 		//Skapa en medicin för patient Anna Andersson
-		patientRegister.skapaMedicin("Anna Andersson", "Alvedon", 200, 10L, 3, klockan.getTid());
+		medicinSkapad = patientRegister.skapaMedicin("Anna Andersson", "Alvedon", 200, 10L, 3, klockan.getTid());
+		System.out.println("Skapa medicin åt  Anna Andersson (true): " + medicinSkapad); 
 		
 		//Hämta medicinlista och printa
 		medicinLista = patientRegister.hamtaMedicinLista("Anna Andersson");
@@ -78,7 +80,11 @@ public class TestKlass
 			System.out.println(string);
 		}
 		
-		
+		//Nytt TEST
+		System.out.println("");
+		//Skapa en medicin för patient Anna Andersson
+		medicinSkapad = patientRegister.skapaMedicin("Anna Andersson", "Alvedon", 500, 10L, 3, klockan.getTid());
+		System.out.println("Skapa medicin åt  Anna Andersson igen (false): " + medicinSkapad); 
 		
 		//Nytt TEST
 		System.out.println("");
@@ -88,7 +94,7 @@ public class TestKlass
 		
 		//Skapa en till  medicin för patient Anna Andersson, printa listan igen
 		klockan.laggTillFemMin();
-		patientRegister.skapaMedicin("Anna Andersson", "Bamyl", 500, 20L, 1, klockan.getTid());
+		medicinSkapad = patientRegister.skapaMedicin("Anna Andersson", "Bamyl", 500, 20L, 1, klockan.getTid());
 		//Hämta medicinlista och printa
 		medicinLista = patientRegister.hamtaMedicinLista("Anna Andersson");
 		System.out.println("Printa medicinlista för Anna Andersson, bör ha två rader:");
