@@ -16,10 +16,10 @@ public class TestKlass
 		
 		//Skapa variabler
 		ArrayList<String> patientLista = new ArrayList<String>();
-		ArrayList<ArrayList<String>>  patientOMedicinLista = new ArrayList<ArrayList<String>>();
+		ArrayList<String> patientOMedicinLista = new ArrayList<String>();
 		boolean patientSkapad = false;
 		boolean medicinSkapad = false;
-		ArrayList<ArrayList<String>> medicinLista = new ArrayList<ArrayList<String>>();
+		ArrayList<String> medicinLista = new ArrayList<String>();
 		
 		//Prova att skapa patient, printa svar
 		patientSkapad = patientRegister.skapaPatienter("Anna Andersson");
@@ -75,15 +75,9 @@ public class TestKlass
 		//Hämta medicinlista och printa
 		medicinLista = patientRegister.hamtaMedicinLista("Anna Andersson");
 		System.out.println("Printa medicinlista för Anna Andersson, bör vara Alvedon 200 ml:");
-		for (ArrayList<String> array : medicinLista)
+		for (String string : medicinLista)
 		{
-			//Printa en ny rad
-			for (String string : array)
-			{
-				System.out.print(string + " ");
-			}
-			//Printa en ny rad
-			System.out.println("");
+			System.out.print(string + " ");
 		}
 		
 		//Nytt TEST
@@ -104,15 +98,9 @@ public class TestKlass
 		//Hämta medicinlista och printa
 		medicinLista = patientRegister.hamtaMedicinLista("Anna Andersson");
 		System.out.println("Printa medicinlista för Anna Andersson, bör ha två rader:");
-		for (ArrayList<String> array : medicinLista)
+		for (String string : medicinLista)
 		{
-			//Printa en ny rad
-			for (String string : array)
-			{
-				System.out.print(string + " ");
-			}
-			//Printa en ny rad
-			System.out.println("");
+			System.out.print(string + " ");
 		}
 		
 		//Testa tidsklassen
@@ -128,15 +116,9 @@ public class TestKlass
 		
 		//Printa listan
 		System.out.println("Printa patientOMedicinlista :");
-		for (ArrayList<String> array : patientOMedicinLista)
+		for (String string : patientOMedicinLista)
 		{
-			//Printa en ny rad
-			for (String string : array)
-			{
-				System.out.print(string + " ");
-			}
-			//Printa en ny rad
-			System.out.println("");
+			System.out.print(string + " ");
 		}
 		
 		
@@ -149,15 +131,11 @@ public class TestKlass
 		patientRegister.skapaMedicin("Cecilia Cerdersson", "Alvedon", 500, 80L, 2, klockan.getTid());
 		patientOMedicinLista = patientRegister.hamtaAllaPatienterOchMedicin();
 		System.out.println("Printa patientOMedicinlista :");
-		for (ArrayList<String> array : patientOMedicinLista)
+		for (String string : patientOMedicinLista)
 		{
-			for (String string : array)
-			{
-				System.out.print(string + " ");
-			}
-			//Printa en ny rad
-			System.out.println("");
+			System.out.print(string + " ");
 		}
+
 		
 		
 

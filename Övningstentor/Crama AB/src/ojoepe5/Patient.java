@@ -86,22 +86,19 @@ public class Patient
     	 //TODO
      }
     
-    /**
-     * Metod för att hämta patientens medicinlista
-     * @return ArrayList<ArrayList<String>>- ArrayLista med patent namn + medicin
-     */
-     public ArrayList<ArrayList<String>> hamtaMedicinLista()
-     {
-    	 ArrayList<ArrayList<String>> arrayAttReturnera = new ArrayList<ArrayList<String>>();
-    	 ArrayList<String> arraySamlad = new ArrayList<String>();
-    	 
-    	 for (Medicin medicin : medicinList)
-    	 {
-    		 arraySamlad.add(namn);
-    		 arraySamlad.addAll(medicin.medicinInfo());
-    		 arrayAttReturnera.add(arraySamlad);
-    	 }
-    	 
-    	 return arrayAttReturnera;
-     }
+     /**
+      * Metod för att hämta patientens medicinlista
+      * @return ArrayList<String> - Lista med patent namn + medicin
+      */
+      public ArrayList<String> hamtaMedicinLista()
+      {
+     	 ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+     	 
+     	 for (Medicin medicin : medicinList)
+     	 {
+     		 arrayAttReturnera.add(namn + " " + medicin.toString());
+     	 }
+     	 
+     	 return arrayAttReturnera;
+      }
 }

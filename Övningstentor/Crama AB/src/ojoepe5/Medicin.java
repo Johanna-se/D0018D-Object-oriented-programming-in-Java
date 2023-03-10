@@ -41,20 +41,14 @@ public class Medicin
     
     //-----------------------------------------------metoder--------------------------------------------------
     /**
-	* Metod för att hämta information om patentens medicin
-	* @return ArrayList<String> - namn ; mängd; tid
+	* Metod för att skriva över toString
+	* @param LocalTime tidNu - utgår från vad klockan inom programmet är nu för att kolla om det är tid att ta medicinen
+	* @return String
 	*/
-    public ArrayList<String> medicinInfo()
+    @Override
+    public String toString()
     {
-    	//Variabler
-    	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
-    	
-    	//Lägg till info
-    	arrayAttReturnera.add(medicinNamn);
-    	arrayAttReturnera.add(String.valueOf(mangd) + "ml ");
-    	arrayAttReturnera.add(String.valueOf(tidAttTaMedicin));
-    	
-    	return arrayAttReturnera;
+    	return medicinNamn + " " + String.valueOf(mangd) + "ml " + String.valueOf(tidAttTaMedicin);
     }
     
 	/**

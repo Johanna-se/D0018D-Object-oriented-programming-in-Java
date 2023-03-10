@@ -57,12 +57,11 @@ public class PatientRegister
     * Metod för att returnera information om alla bolagets patienter som har en medicin inlaggd. Saknas det medicin så 
     * @return ArrayList<String> - array med alla patienter och deras mediciner "Anna Andersson Alvedon 200ml 12:15"
     */
-    public ArrayList<ArrayList<String>> hamtaAllaPatienterOchMedicin()
+    public ArrayList<String> hamtaAllaPatienterOchMedicin()
     {
-        //variabler
-        ArrayList<ArrayList<String>> arrayAttReturnera = new ArrayList<ArrayList<String>>();
-        ArrayList<ArrayList<String>> tempArray = new ArrayList<ArrayList<String>>();
-        ArrayList<String> splitArray = new ArrayList<String>();
+    	//variabler
+        ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+        ArrayList<String> tempArray = new ArrayList<String>();
         
         //Loop-igenom array med patienter, hämta dessas medicinlista 
         for (Patient patient : patientLista)
@@ -73,17 +72,11 @@ public class PatientRegister
         	//Kolla om patienten saknar medicin (arrayen är då tom). Om så, lägg till patientens namn endast
         	if (tempArray.isEmpty())
         	{
-        		splitArray.add(patient.getNamn());
-        		splitArray.add(" *");
-        		splitArray.add(" *");
-        		splitArray.add(" *");
-        		
-        		//Lägg till arrayen
-        		tempArray.add(splitArray); //Källa: https://www.geeksforgeeks.org/arraylist-of-arraylist-in-java/
+        		arrayAttReturnera.add(patient.getNamn() + " *" + " *" + " *");
         	}
         	
         	//Lägg till arrayen
-        	arrayAttReturnera.addAll(tempArray); //Källa: https://www.geeksforgeeks.org/arraylist-of-arraylist-in-java/
+        	arrayAttReturnera.addAll(tempArray); //Källa: https://www.geeksforgeeks.org/join-two-arraylists-in-java/
         }
         
         return arrayAttReturnera;
@@ -150,11 +143,11 @@ public class PatientRegister
     * @param String namn - patientens namn
     * @return ArrayList<String> - Lista med patient namn + medicin
     */
-    public ArrayList<ArrayList<String>> hamtaMedicinLista(String namn)
+    public ArrayList<String> hamtaMedicinLista(String namn)
     {
     	//Variabler
     	int patientPos;
-    	ArrayList<ArrayList<String>> arrayAttReturnera = new ArrayList<ArrayList<String>>();
+    	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
     	
     	//Hitta patienten
         patientPos = finnsNamn(namn);
