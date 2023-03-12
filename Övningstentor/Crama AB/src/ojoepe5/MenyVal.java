@@ -153,6 +153,12 @@ public class MenyVal
                 case 9:
                     System.out.println("9. ...");
                     break;
+                case 10:
+                    System.out.println("10. ...");
+                    break;
+                case 11:
+                    System.out.println("11. ...");
+                    break;
                 default:
                     System.out.println("Ej giltigt val, välj en annan siffra ");
                     
@@ -179,6 +185,8 @@ public class MenyVal
         System.out.printf("%n7. Printa loggLista för patient. ");
         System.out.printf("%n8. Ta bort medicin. ");
         System.out.printf("%n9. ...");
+        System.out.printf("%n10. ...");
+        System.out.printf("%n11. ...");
         System.out.printf("%nq. Avsluta. ");
             
         //user input
