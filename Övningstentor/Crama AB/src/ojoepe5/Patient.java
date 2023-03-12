@@ -96,6 +96,7 @@ public class Patient
      {
          //Variabler
          int medicinPos;
+         boolean medicinTagen;
          String logg;
          
          //Hitta medicinen
@@ -107,12 +108,18 @@ public class Patient
              return false; //om kund ej finns returnera tom array
          }
          
-         //Uppdatera logglista
-         logg = medicinList.get(medicinPos).toString();
-         loggList.add(logg);
-         
          //medicinklassen kollar om det är tid att ta medicinen
-         return medicinList.get(medicinPos).taMedicin(tidNu);
+         medicinTagen = medicinList.get(medicinPos).taMedicin(tidNu);
+         
+         //Om meddicinen togs, uppdatera loggen
+         if (medicinTagen == true)
+         {
+             //Uppdatera logglista
+             logg = medicinList.get(medicinPos).toString();
+             loggList.add(logg);
+         }
+         
+         return medicinTagen;
      }
      
      /**
@@ -140,15 +147,16 @@ public class Patient
           medicinKlar = medicinList.get(medicinPos).getMedicinKlar();
           
           //Om medicin ej klar
-          if (medicinKlar = false)
+          if (medicinKlar == false)
           {
-              return medicinKlar;
+              System.out.println("medicinKlar är: " + medicinKlar);
+              return false;
           }
           
           //Ta bort medicin
           medicinList.remove(medicinPos);
           
-          return medicinKlar;
+          return true;
       }
     
      /**
