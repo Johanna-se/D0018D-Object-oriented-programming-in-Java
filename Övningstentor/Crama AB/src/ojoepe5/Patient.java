@@ -81,9 +81,28 @@ public class Patient
      * @param int antal - hur många gånger medicinen ska tas
      * @param LocalTime tidNu - utgår från vad klockan inom programmet är nu för att skapa logg när medicin ska tas
      */
-     //public boolean taMedicin(String medicinNamn, int mangd, long tid, int antal, LocalTime tidNu)
+     public boolean taMedicin(String medicinNamn, LocalTime tidNu)
      {
-    	 //TODO
+         //Variabler
+         int medicinPos;
+         
+         //Hitta patienten
+         medicinPos = finnsMedicin(medicinNamn);
+         
+         //TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         System.out.println("medicins position i listan? : " + medicinPos ); 
+         
+         
+         //Om det gör det, returnera false
+         if (medicinPos < 0)
+         {
+             return false; //om kund ej finns returnera tom array
+         }
+         
+         //medicinklassen kollar om det är tid att ta medicinen
+         return medicinList.get(medicinPos).taMedicin(tidNu);
+         
+         //TODO
      }
     
      /**
@@ -100,5 +119,27 @@ public class Patient
      	 }
      	 
      	 return arrayAttReturnera;
+      }
+      
+      //-----------------------------------------Privata Metoder -------------------------------------------------    
+      
+      /**
+      * Privat metod för att kolla om patient har medicin
+      * @param String namn, medicinens namn
+      * @return int, om medicinen finns returnera position i lista, om ej returnera -1
+      */
+      private int finnsMedicin(String namn)
+      {
+          //Loopa igenom patientlista
+          for (Medicin medicin : medicinList)
+          {
+              if (namn.equals(medicin.medicinNamn()))
+              {
+                  return medicinList.indexOf(medicin); 
+              }
+          }
+          
+          //Om loopen ej hittar 
+          return -1;
       }
 }

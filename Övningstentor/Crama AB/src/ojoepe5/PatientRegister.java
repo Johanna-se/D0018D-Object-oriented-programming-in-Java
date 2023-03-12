@@ -169,26 +169,29 @@ public class PatientRegister
     * Metod för att ta medicin
     * @param String namn - patientens namn
     * @param String medicinNamn - medicinen som ska tas namn
+    * @param LocalTime tidNu - vad är klockan
     * @return boolean - medicin tagen ja/nej
     */
-    //public boolean taMedicin(String namn, String medicinNamn)
+    public boolean taMedicin(String namn, String medicinNamn, LocalTime tidNu)
     {
     	//Variabler
-    	//int patientPos;
-    	//ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+    	int patientPos;
     	
     	//Hitta patienten
-        //patientPos = finnsNamn(namn);
+        patientPos = finnsNamn(namn);
+        
+        //TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        System.out.println("patients position i listan? : " + patientPos); 
         
         
         //Om det gör det, returnera false
-        //if (patientPos < 0)
+        if (patientPos < 0)
         {
-        	//return arrayAttReturnera; //om kund ej finns returnera tom array
+        	return false; //om kund ej finns returnera tom array
         }
         
-        //Om patienten finns hämta listan
-        //arrayAttReturnera = patientLista.get(patientPos).hamtaMedicinLista();
+        //Om patienten finns försök ta medicinen
+        return patientLista.get(patientPos).taMedicin(medicinNamn, tidNu);
 
         //return arrayAttReturnera;
     }

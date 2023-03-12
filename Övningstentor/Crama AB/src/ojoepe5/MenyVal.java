@@ -4,6 +4,7 @@
 */
 package ojoepe5;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner; 
 
@@ -19,6 +20,7 @@ public class MenyVal
         ArrayList<String> patientOMedicinLista = new ArrayList<String>();
         boolean patientSkapad = false;
         boolean medicinSkapad = false;
+        boolean medicinTagen = false;
         ArrayList<String> medicinLista = new ArrayList<String>();
         String namnPatient;
         String medicinNamn;
@@ -44,7 +46,7 @@ public class MenyVal
                     System.out.printf("%nDemonstrationen avslutas");
                     break;
                 case 1:
-                    System.out.println("%n1. Skapa patient.");
+                    System.out.println("1. Skapa patient.");
                     
                     //Prova att skapa patient, printa svar
                     System.out.println("Namn på Patient: ");
@@ -54,6 +56,15 @@ public class MenyVal
                     break;
                 case 2:
                     System.out.println("2. Printa patient och medicinlista: ");
+                    //Hämta lista över alla patienter samt deras mediciner
+                    patientOMedicinLista = patientRegister.hamtaAllaPatienterOchMedicin();
+                    
+                    //Printa listan
+                    System.out.println("Printa patientOMedicinlista :");
+                    for (String string : patientOMedicinLista)
+                    {
+                        System.out.println(string);
+                    }
                     break;
                 case 3:
                     System.out.println("3. Printa vad klockan är: ");
@@ -79,7 +90,6 @@ public class MenyVal
                     mangdMedicin = inputIntMinMax("Vilken mängd? ", "Mängden måste vara minst 0.", 0, 10000000); 
                     
                     //Vilken tidsintervall (anges i minuter)
-                    System.out.println("Med vilken tidsintervall ska medicinen tas? anges i minuter ");
                     tidsIntervall = inputLongMinMax("Med vilken tidsintervall ska medicinen tas? anges i minuter " , "För enkel testning har jag valt min 0 min upp till 200 min. ", 0L, 200L);
                     
                     //Hur många gånger?
@@ -89,6 +99,21 @@ public class MenyVal
                     System.out.println("Skapades medicinen?: " + medicinSkapad); 
                     break;
                 case 6:
+                    System.out.println("6. Ta medicin. ");
+                    
+                    //Patients namn: 
+                    System.out.println("Namn på Patient: ");
+                    namnPatient = userInput.nextLine(); 
+                    
+                    //Vilken medicin?
+                    System.out.println("Vilken medicin? ");
+                    medicinNamn = userInput.nextLine();
+                    
+                    //Ta medicinen
+                    medicinTagen = patientRegister.taMedicin(namnPatient, medicinNamn, klockan.getTid());
+                    System.out.println("Togs medicinen? : " + medicinTagen); 
+                    break;
+                case 7:
                     System.out.println("6. ...");
                     break;
                 default:
@@ -114,7 +139,8 @@ public class MenyVal
         System.out.printf("%n4. Lägg till 5 min. ");
         System.out.printf("%n5. Lägg till medicin: ");
         System.out.printf("%n6. ...");
-        System.out.printf("%nq. ...");
+        System.out.printf("%n7. ...");
+        System.out.printf("%nq. Avsluta. ");
             
         //user input
         System.out.printf("%nDitt val: ");
