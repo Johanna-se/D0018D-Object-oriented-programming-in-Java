@@ -90,9 +90,6 @@ public class Patient
     /**
      * Metod för att ta medicin 
      * @param String medicinNamn - vilken medicin
-     * @param int mangd - mängden av medicin som ska tas
-     * @param long tid - vilken tid medicinen ska tas
-     * @param int antal - hur många gånger medicinen ska tas
      * @param LocalTime tidNu - utgår från vad klockan inom programmet är nu för att skapa logg när medicin ska tas
      */
      public boolean taMedicin(String medicinNamn, LocalTime tidNu)
@@ -101,14 +98,10 @@ public class Patient
          int medicinPos;
          String logg;
          
-         //Hitta patienten
+         //Hitta medicinen
          medicinPos = finnsMedicin(medicinNamn);
          
-         //TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         System.out.println("medicins position i listan? : " + medicinPos ); 
-         
-         
-         //Om det gör det, returnera false
+         //Om ej finns
          if (medicinPos < 0)
          {
              return false; //om kund ej finns returnera tom array
@@ -117,13 +110,46 @@ public class Patient
          //Uppdatera logglista
          logg = medicinList.get(medicinPos).toString();
          loggList.add(logg);
-         //TODO
          
          //medicinklassen kollar om det är tid att ta medicinen
          return medicinList.get(medicinPos).taMedicin(tidNu);
-         
-         //TODO
      }
+     
+     /**
+      * Metod för att ta bort medicin
+      * @param String medicinNamn - vilken medicin
+      * @param boolean - medicin borttagen ja/nej
+      */
+      public boolean taBortMedicin(String medicinNamn)
+      {
+          //Variabler
+          int medicinPos;
+          boolean medicinKlar;
+          
+          //Hitta medicinen
+          medicinPos = finnsMedicin(medicinNamn);
+
+
+          //Om ej finns
+          if (medicinPos < 0)
+          {
+              return false; //om kund ej finns returnera tom array
+          }
+          
+          //Kolla om medicin är klar
+          medicinKlar = medicinList.get(medicinPos).getMedicinKlar();
+          
+          //Om medicin ej klar
+          if (medicinKlar = false)
+          {
+              return medicinKlar;
+          }
+          
+          //Ta bort medicin
+          medicinList.remove(medicinPos);
+          
+          return medicinKlar;
+      }
     
      /**
       * Metod för att hämta patientens medicinlista

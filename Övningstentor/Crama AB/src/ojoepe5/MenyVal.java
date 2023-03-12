@@ -16,17 +16,24 @@ public class MenyVal
     {
         //Variabler
         int val;
+        int mangdMedicin;
+        int antalGanger;
+        
         ArrayList<String> patientLista = new ArrayList<String>();
         ArrayList<String> patientOMedicinLista = new ArrayList<String>();
+        ArrayList<String> loggLista = new ArrayList<String>();
+        ArrayList<String> medicinLista = new ArrayList<String>();
+        
         boolean patientSkapad = false;
         boolean medicinSkapad = false;
         boolean medicinTagen = false;
-        ArrayList<String> medicinLista = new ArrayList<String>();
+        boolean medicinBorta = false; 
+        
         String namnPatient;
         String medicinNamn;
-        int mangdMedicin;
+
         long tidsIntervall;
-        int antalGanger;
+
         
         //Skapa patientregister
         PatientRegister patientRegister  = new PatientRegister();
@@ -115,9 +122,35 @@ public class MenyVal
                     break;
                 case 7:
                     System.out.println("7. Printa loggLista för patient ");
+                    //Patients namn: 
+                    System.out.println("Namn på Patient: ");
+                    namnPatient = userInput.nextLine(); 
+                    
+                    //Hämta logglistan
+                    loggLista = patientRegister.hamtaLogg(namnPatient);
+                    
+                    //Printa listan
+                    System.out.println("Printa LoggLista :");
+                    for (String string : loggLista)
+                    {
+                        System.out.println(string);
+                    }
                     break;
                 case 8:
                     System.out.println("8. Ta bort medicin. ");
+                    
+                    //Patients namn: 
+                    System.out.println("Namn på Patient: ");
+                    namnPatient = userInput.nextLine(); 
+                    
+                    //Vilken medicin?
+                    System.out.println("Vilken medicin? ");
+                    medicinNamn = userInput.nextLine();
+                    
+                    medicinBorta = patientRegister.taBortMedicin(namnPatient, medicinNamn);
+                    System.out.println("Togs medicinen bort? : " + medicinBorta); 
+                    
+                    //TODO KOLLA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     break;
                 case 9:
                     System.out.println("9. ...");

@@ -179,11 +179,7 @@ public class PatientRegister
     	
     	//Hitta patienten
         patientPos = finnsNamn(namn);
-        
-        //TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        System.out.println("patients position i listan? : " + patientPos); 
-        
-        
+       
         //Om det gör det, returnera false
         if (patientPos < 0)
         {
@@ -192,8 +188,30 @@ public class PatientRegister
         
         //Om patienten finns försök ta medicinen
         return patientLista.get(patientPos).taMedicin(medicinNamn, tidNu);
-
-        //return arrayAttReturnera;
+    }
+    
+    /**
+    * Metod för att ta bort Medicin
+    * @param String namn - patientens namn
+    * @param String medicinNamn - medicinen som ska tas namn
+    * @return boolean - medicin bortagen ja/nej
+    */
+    public boolean taBortMedicin(String namn, String medicinNamn)
+    {
+        //Variabler
+        int patientPos;
+        
+        //Hitta patienten
+        patientPos = finnsNamn(namn);
+       
+        //Om det gör det, returnera false
+        if (patientPos < 0)
+        {
+            return false; //om kund ej finns returnera tom array
+        }
+        
+        //Om patienten finns försök ta medicinen
+        return patientLista.get(patientPos).taBortMedicin(medicinNamn);
     }
     
     /**
