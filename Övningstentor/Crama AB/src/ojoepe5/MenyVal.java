@@ -138,7 +138,7 @@ public class MenyVal
         System.out.printf("%n3. Printa vad klockan är. ");
         System.out.printf("%n4. Lägg till 5 min. ");
         System.out.printf("%n5. Lägg till medicin: ");
-        System.out.printf("%n6. ...");
+        System.out.printf("%n6. Ta medicin. ");
         System.out.printf("%n7. ...");
         System.out.printf("%nq. Avsluta. ");
             
