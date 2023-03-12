@@ -114,7 +114,13 @@ public class MenyVal
                     System.out.println("Togs medicinen? : " + medicinTagen); 
                     break;
                 case 7:
-                    System.out.println("6. ...");
+                    System.out.println("7. Printa loggLista för patient ");
+                    break;
+                case 8:
+                    System.out.println("8. Ta bort medicin. ");
+                    break;
+                case 9:
+                    System.out.println("9. ...");
                     break;
                 default:
                     System.out.println("Ej giltigt val, välj en annan siffra ");
@@ -139,7 +145,9 @@ public class MenyVal
         System.out.printf("%n4. Lägg till 5 min. ");
         System.out.printf("%n5. Lägg till medicin: ");
         System.out.printf("%n6. Ta medicin. ");
-        System.out.printf("%n7. ...");
+        System.out.printf("%n7. Printa loggLista för patient. ");
+        System.out.printf("%n8. Ta bort medicin. ");
+        System.out.printf("%n9. ...");
         System.out.printf("%nq. Avsluta. ");
             
         //user input

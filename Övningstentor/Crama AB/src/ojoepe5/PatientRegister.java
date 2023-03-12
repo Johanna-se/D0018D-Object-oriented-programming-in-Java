@@ -195,6 +195,32 @@ public class PatientRegister
 
         //return arrayAttReturnera;
     }
+    
+    /**
+    * Metod för att hämta en patients loggLista över tagna mediciner
+    * @param String namn - patientens namn
+    * @return ArrayList<String> - Lista med patients logg
+    */
+    public ArrayList<String> hamtaLogg(String namn)
+    {
+        //Variabler
+        int patientPos;
+        ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+        
+        //Hitta patienten
+        patientPos = finnsNamn(namn);
+         
+        //Om det gör det, returnera false
+        if (patientPos < 0)
+        {
+            return arrayAttReturnera; //om kund ej finns returnera tom array
+        }
+        
+        //Om patienten finns hämta dennes loggLista
+        arrayAttReturnera = patientLista.get(patientPos).getLoggList();
+        
+        return arrayAttReturnera;
+    }
 
 
 	//-----------------------------------------Privata Metoder -------------------------------------------------    

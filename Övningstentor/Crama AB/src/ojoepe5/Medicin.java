@@ -33,9 +33,14 @@ public class Medicin
     
     //-----------------------------------------------Get metoder--------------------------------------------------    
     
-    public String medicinNamn()
+    public String getMedicinNamn()
     {
         return medicinNamn;
+    }
+    
+    public boolean getMedicinKlar()
+    {
+        return medicinKlar;
     }
     
     

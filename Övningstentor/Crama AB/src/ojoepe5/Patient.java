@@ -37,6 +37,20 @@ public class Patient
         return namn;
     }
     
+    //OBS kopia av logglistan
+    public ArrayList<String> getLoggList()
+    {
+        //Variabel
+        ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+        
+        for (String string : loggList)
+        {
+            arrayAttReturnera.add(string);
+        }
+        
+        return arrayAttReturnera;
+    }
+    
     
     //-----------------------------------------------Metoder för medicin-------------------------------------------------
     
@@ -56,7 +70,7 @@ public class Patient
     	//Kolla så att patienten inte redan har medicinen
     	for (Medicin medicin : medicinList)
     	{
-    		kontroll = medicin.medicinNamn();
+    		kontroll = medicin.getMedicinNamn();
     		
     		if (kontroll.equals(medicinNamn))
     		{
@@ -85,6 +99,7 @@ public class Patient
      {
          //Variabler
          int medicinPos;
+         String logg;
          
          //Hitta patienten
          medicinPos = finnsMedicin(medicinNamn);
@@ -98,6 +113,11 @@ public class Patient
          {
              return false; //om kund ej finns returnera tom array
          }
+         
+         //Uppdatera logglista
+         logg = medicinList.get(medicinPos).toString();
+         loggList.add(logg);
+         //TODO
          
          //medicinklassen kollar om det är tid att ta medicinen
          return medicinList.get(medicinPos).taMedicin(tidNu);
@@ -133,7 +153,7 @@ public class Patient
           //Loopa igenom patientlista
           for (Medicin medicin : medicinList)
           {
-              if (namn.equals(medicin.medicinNamn()))
+              if (namn.equals(medicin.getMedicinNamn()))
               {
                   return medicinList.indexOf(medicin); 
               }
