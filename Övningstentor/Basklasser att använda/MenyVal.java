@@ -113,4 +113,89 @@ public class MenyVal
         }
         return svar;   
     }
+
+    /**
+    * Metod för att få en int från användaren med ett min eller maxvärde
+    * @return svar - int
+    */  
+    public static int inputIntMinMax(String text, String error, int min, int max)
+    {
+        //create variables
+        int svar = min-1;
+
+        System.out.printf(text);
+        do
+        {
+            svar = inputInt();
+            userInput.nextLine();
+
+            if (svar < min | svar > max)
+            {
+                System.out.printf(error);
+                svar = min-1;
+            }
+        } while (svar == min-1);
+        
+        return svar;
+    }
+
+        /**
+    * Metod för att få en long från användaren med ett min eller maxvärde
+    * @return svar - int
+    */  
+    public static long inputLongMinMax(String text, String error, long min, long max)
+    {
+        //create variables
+        long svar = min-1;
+
+        System.out.printf(text);
+        do
+        {
+            svar = inputLong();
+            userInput.nextLine();
+
+            if (svar < min | svar > max)
+            {
+                System.out.printf(error);
+                svar = min-1;
+            }
+        } while (svar == min-1);
+        
+        return svar;
+    }
+    
+    /**
+    * Metod för att få en long från användaren
+    * @return svar - long
+    */  
+    public static long inputLong()
+    {
+        //skapa variabler
+        long svar = -2L;
+        
+        //loop genom data
+        while (svar == -2L)
+        {    
+            //Om användaren anger en int
+            if (userInput.hasNextLong())
+            {
+                svar = userInput.nextLong(); 
+                svar = Math.abs(svar);
+            }
+            
+            //Om användaren skriver in q (för att avsluta)
+            else if (userInput.next().equalsIgnoreCase("q"))
+            {
+                svar = -1;
+            }
+            
+            // Ej giltigt värde
+            else
+            {
+                System.out.printf("Ej giltigt svar.%n");
+                svar = -2;
+            }
+        }
+        return svar;   
+    }
 }
