@@ -91,6 +91,7 @@ public class Patient
      * Metod för att ta medicin 
      * @param String medicinNamn - vilken medicin
      * @param LocalTime tidNu - utgår från vad klockan inom programmet är nu för att skapa logg när medicin ska tas
+     * @return boolean - medicin tagen ja/nej
      */
      public boolean taMedicin(String medicinNamn, LocalTime tidNu)
      {
@@ -125,7 +126,7 @@ public class Patient
      /**
       * Metod för att ta bort medicin
       * @param String medicinNamn - vilken medicin
-      * @param boolean - medicin borttagen ja/nej
+      * @return boolean - medicin borttagen ja/nej
       */
       public boolean taBortMedicin(String medicinNamn)
       {

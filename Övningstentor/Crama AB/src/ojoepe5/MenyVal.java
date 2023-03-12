@@ -149,8 +149,6 @@ public class MenyVal
                     
                     medicinBorta = patientRegister.taBortMedicin(namnPatient, medicinNamn);
                     System.out.println("Togs medicinen bort? : " + medicinBorta); 
-                    
-                    //TODO KOLLA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     break;
                 case 9:
                     System.out.println("9. ...");
