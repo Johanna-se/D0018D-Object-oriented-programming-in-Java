@@ -8,6 +8,10 @@
 
 package ojoepe5;
 
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -41,6 +45,60 @@ public class Medicin
     public boolean getMedicinKlar()
     {
         return medicinKlar;
+    }
+    
+//--------------------------------Metoder för IO--------------------------------------------
+    
+    /**
+    * Metod för att kunna läsa objected från en stream. behövs för att implementera Serializable 
+    * @param ObjectOutputStream streamUt
+    * @return void
+    */
+    private void readObject(ObjectInputStream streamIn) throws ClassNotFoundException, IOException
+    {
+        try
+        {
+        	medicinNamn = streamIn.readUTF();
+        	mangd = streamIn.readInt();
+        	medicinKlar = streamIn.readBoolean();
+        	tidsIntervall = streamIn.readLong();
+        	tidAttTaMedicin = (LocalTime) streamIn.readObject();
+        	antalGanger = streamIn.readInt();
+        }
+        catch (EOFException exc)
+        {
+            //Slut på inläsningen, 
+        }
+        catch (ClassNotFoundException ce)
+        {
+            throw new ClassNotFoundException();
+        }
+        catch (IOException e)
+        {
+            throw new IOException();
+        }
+    }
+    
+    /**
+    * Metod för att kunna läsa objected till en stream. behövs för att implementera Serializable 
+    * @param ObjectOutputStream streamUt
+    * @return void
+    */
+    private void writeObject(ObjectOutputStream streamUt) throws IOException
+    {
+        try
+        {
+        	streamUt.writeUTF(medicinNamn);
+        	streamUt.writeInt(mangd);
+        	streamUt.writeBoolean(medicinKlar);
+        	streamUt.writeLong(tidsIntervall);
+        	streamUt.writeObject(tidAttTaMedicin);
+        	streamUt.writeInt(antalGanger);
+        }
+        catch (IOException e)
+        {
+            throw new IOException();
+        }
     }
     
     
