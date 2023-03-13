@@ -89,7 +89,6 @@ public class FrageBank
     {
     	//Variabler
         int kategoriPos;
-        boolean fragaSkapad;
         
         //Hitta kategorins position
         kategoriPos = finnsKategori(kategoriNamn);
@@ -101,7 +100,7 @@ public class FrageBank
         }
         
         //Skapa frågan
-        //TODO
+        kategoriLista.get(kategoriPos).skapaFraga(text, svar);
         
         return true;
     }
