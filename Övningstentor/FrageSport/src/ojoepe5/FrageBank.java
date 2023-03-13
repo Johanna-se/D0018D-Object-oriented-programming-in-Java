@@ -87,23 +87,23 @@ public class FrageBank
     */
     public boolean skapaFraga(String text, String svar, String kategoriNamn)
     {
-    	//variabler
-    	int kategoriPos;
-    	boolean fragaSkapas,
-    	
-    	//Hitta medicinen
-    	kategoriPos = finnsKategori(kategoriNamn);
+    	//Variabler
+        int kategoriPos;
+        boolean fragaSkapad;
         
+        //Hitta kategorins position
+        kategoriPos = finnsKategori(kategoriNamn);
+
         //Om ej finns
         if (kategoriPos < 0)
         {
             return false; 
         }
-    	
-    	//Skapa frågan
-    	
-    	
-    	return true;
+        
+        //Skapa frågan
+        //TODO
+        
+        return true;
     }
         
       //-----------------------------------------Privata Metoder -------------------------------------------------    
