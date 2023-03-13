@@ -136,7 +136,7 @@ public class TestKlass
 		}
 		
 		//Testa filhantering
-		filHantering.sparaRegister();
+		//filHantering.sparaRegister();
 
 		
 		

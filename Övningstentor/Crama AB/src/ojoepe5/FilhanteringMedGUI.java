@@ -70,7 +70,7 @@ public class FilhanteringMedGUI
                     switch(anvandarVal)
                     {
                         case JOptionPane.YES_OPTION:
-                            //sparaData(fil);
+                            sparaData(fil);
                             break;
                         case JOptionPane.NO_OPTION:
                             break;
@@ -106,12 +106,12 @@ public class FilhanteringMedGUI
             fil = hanteraFil.getSelectedFile();
             
             //Varana användaren att befintliga kunder kommer att skrivas över
-            anvandarVal = JOptionPane.showConfirmDialog(null, "Du kommer ladda in nya kunder till banken från fil, eventuella icke-sparade kunder kommer att försvinna, vill du fortsätta?", "Ladda kunder från fil", JOptionPane.YES_NO_OPTION);
+            anvandarVal = JOptionPane.showConfirmDialog(null, "Du kommer ladda in nya patienter från fil, eventuella icke-sparade kunder kommer att försvinna, vill du fortsätta?", "Ladda från fil", JOptionPane.YES_NO_OPTION);
                     
             switch(anvandarVal)
             {
                 case JOptionPane.YES_OPTION:
-                    /**try
+                    try
                     {
                         ObjectInputStream infil = new ObjectInputStream(new FileInputStream(fil));
                         patientRegister = (PatientRegister) infil.readObject(); //Läs in från fil
@@ -131,7 +131,7 @@ public class FilhanteringMedGUI
                      {
                          e.printStackTrace(System.out);
                          JOptionPane.showMessageDialog(null, "Det gick inte att läsa från filen");
-                      }*/
+                      }
                       break;
                 case JOptionPane.NO_OPTION:
                      break;
