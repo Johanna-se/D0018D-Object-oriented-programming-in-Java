@@ -1,3 +1,9 @@
+/**
+* Klass för spelare 
+* @author Johanna Petersson, ojoepe-5
+*/
+
+
 package ojoepe5;
 
 public class Spelare 

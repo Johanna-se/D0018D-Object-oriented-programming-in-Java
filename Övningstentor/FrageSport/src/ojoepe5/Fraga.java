@@ -1,3 +1,8 @@
+/**
+* Klass för frågor som tillhör en kategori
+* @author Johanna Petersson, ojoepe-5
+*/
+
 package ojoepe5;
 
 

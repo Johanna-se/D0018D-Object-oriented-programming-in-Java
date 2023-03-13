@@ -1,3 +1,8 @@
+/**
+* Klass för kategorier
+* @author Johanna Petersson, ojoepe-5
+*/
+
 package ojoepe5;
 
 import java.util.ArrayList;
@@ -18,6 +23,12 @@ public class Kategori
     }
     
     //--------------------------------Metoder för IO--------------------------------------------
+    
+    //-------------------------------Get metoder-----------------------------------
+    public String getNamn()
+    {
+        return kategori;
+    }
     
     //-------------------------------Publika metoder----------------------------------- 
 }

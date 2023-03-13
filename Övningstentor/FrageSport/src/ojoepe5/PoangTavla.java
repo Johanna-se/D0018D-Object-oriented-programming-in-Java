@@ -1,3 +1,8 @@
+/**
+* Klass för poängtavla
+* @author Johanna Petersson, ojoepe-5
+*/
+
 package ojoepe5;
 
 import java.util.ArrayList;

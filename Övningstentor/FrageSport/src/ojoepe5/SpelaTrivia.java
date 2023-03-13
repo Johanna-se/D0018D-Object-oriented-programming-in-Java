@@ -1,3 +1,8 @@
+/**
+* Klass för att spela Trivia
+* @author Johanna Petersson, ojoepe-5
+*/
+
 package ojoepe5;
 
 import java.util.ArrayList;
@@ -14,17 +19,16 @@ public class SpelaTrivia
     
     
   //konstruktor
-    public SpelaTrivia()
+    public SpelaTrivia(FrageBank frageBank)
     {
     	spelarLista = new ArrayList<Spelare>();
     	dennaSpelare = null;
     	dennaKategori = null;
     	dennaFraga = null;
     	poangTavla = new PoangTavla();
-    	frageBank = new FrageBank();
+    	this.frageBank  = frageBank;
     }
     
-    //--------------------------------Metoder för IO--------------------------------------------
     
     //-------------------------------Publika metoder-----------------------------------
     /**
