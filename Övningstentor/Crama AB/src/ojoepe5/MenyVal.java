@@ -150,7 +150,7 @@ public class MenyVal
                     break;
                 case 9:
                     System.out.println("9. Ladda patienter från fil");
-                    filHantering.laddaRegister();
+                    patientRegister = filHantering.laddaRegister();
                     break;
                 case 10:
                     System.out.println("10. Spara patienter till fil");

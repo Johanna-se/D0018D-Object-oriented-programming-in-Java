@@ -1,5 +1,5 @@
 /**
- * Klass för att skapa en filhanterare med eget GUI - komponenter.
+ * Klass för att skapa en filhanterare med eget GUI.
  * 
  * @author Johanna Petersson, ojoepe-5
  */
@@ -18,14 +18,14 @@ public class FilhanteringMedGUI
     private JFileChooser hanteraFil;
     private FileNameExtensionFilter filter;
     
-    //Skapa patientregister
-    private PatientRegister patientRegister;
+    //Skapa patientregister BYT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //private PatientRegister patientRegister;
 	
 	// Konstruktorer
-    public FilhanteringMedGUI (PatientRegister register)
+    public FilhanteringMedGUI (PatientRegister register) //BYT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     {
         //Skapa en bank
-    	patientRegister = register;
+    	patientRegister = register; //BYT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     	
     	//Skapa filhanteraren 
         //Källor:
@@ -114,7 +114,7 @@ public class FilhanteringMedGUI
                     try
                     {
                         ObjectInputStream infil = new ObjectInputStream(new FileInputStream(fil));
-                        patientRegister = (PatientRegister) infil.readObject(); //Läs in från fil
+                        patientRegister = (PatientRegister) infil.readObject(); //Läs in från fil //BYT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         infil.close();
                         JOptionPane.showMessageDialog(null, "Data laddades"); //Meddela användaren att banken laddades
                     }
@@ -154,7 +154,7 @@ public class FilhanteringMedGUI
         try
         {
             ObjectOutputStream utfil = new ObjectOutputStream (new FileOutputStream(fil));
-            utfil.writeObject(patientRegister);
+            utfil.writeObject(patientRegister); //BYT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             utfil.close();
             JOptionPane.showMessageDialog(null, "Data sparades");
         }

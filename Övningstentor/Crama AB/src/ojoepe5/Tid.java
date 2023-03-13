@@ -2,19 +2,18 @@
 * Klass för att simulera tid. klockan startar vid 12.00 mitt på dagen.
 * klassen använder sig av java.time.LocalTime
 * 
+* Jag funderade på om klockan skulle sparas i implements Serializable men då programmet egentligen ska vara beroende av reala tiden 
+* (och där av ej ska sparas) så avstod jag.
+* 
 * Källor: https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html
 * @author Johanna Petersson, ojoepe-5
 */
 package ojoepe5;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Tid implements Serializable
+public class Tid 
 {
 	private LocalTime klockan;
 	
@@ -31,50 +30,6 @@ public class Tid implements Serializable
         return klockan;
     }
     
-//--------------------------------Metoder för IO--------------------------------------------
-    
-    /**
-    * Metod för att kunna läsa objected från en stream. behövs för att implementera Serializable 
-    * @param ObjectOutputStream streamUt
-    * @return void
-    */
-    private void readObject(ObjectInputStream streamIn) throws ClassNotFoundException, IOException
-    {
-        try
-        {
-
-        	klockan = (LocalTime) streamIn.readObject();
-        }
-        catch (EOFException exc)
-        {
-            //Slut på inläsningen, 
-        }
-        catch (ClassNotFoundException ce)
-        {
-            throw new ClassNotFoundException();
-        }
-        catch (IOException e)
-        {
-            throw new IOException();
-        }
-    }
-    
-    /**
-    * Metod för att kunna läsa objected till en stream. behövs för att implementera Serializable 
-    * @param ObjectOutputStream streamUt
-    * @return void
-    */
-    private void writeObject(ObjectOutputStream streamUt) throws IOException
-    {
-        try
-        {
-        	streamUt.writeObject(klockan);
-        }
-        catch (IOException e)
-        {
-            throw new IOException();
-        }
-    }
     
     //-----------------------------------------------Metoder-------------------------------------------------
     
