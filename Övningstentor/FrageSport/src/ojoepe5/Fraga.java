@@ -11,14 +11,12 @@ public class Fraga
 	//Variabler
     private String fraga;
     private String svar;
-    private int fragaId;
     
     //konstruktor
-    public Fraga (String fraga, String svar, int fragaID)
+    public Fraga (String fraga, String svar)
     {
     	this.fraga = fraga;
     	this.svar = svar;
-    	this.fragaId = fragaID;
     }
     
     //--------------------------------Metoder för IO--------------------------------------------

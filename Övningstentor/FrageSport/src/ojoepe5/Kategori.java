@@ -31,4 +31,18 @@ public class Kategori
     }
     
     //-------------------------------Publika metoder----------------------------------- 
+    /**
+    * Metod för att skapa en fråga
+    * NOTE: Jag kollar inte om frågan finns sedan tidigare
+    * @param String text - frågan
+    * @param String svar - svaret på frågan
+    * @return boolean skapad Ja/Nej.
+    */
+    public boolean skapaFraga(String text, String svar)
+    {
+        //Skapa frågan
+        //TODO
+         
+         return true;
+     }
 }
