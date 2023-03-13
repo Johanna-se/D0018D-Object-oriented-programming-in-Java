@@ -10,7 +10,8 @@ public class testKlass
 	public static void main(String[]args)
     {
 		//Variabler
-		SpelaTrivia spelaTrivia = new SpelaTrivia();
+		FrageBank frageBank = new FrageBank();
+		SpelaTrivia spelaTrivia = new SpelaTrivia(frageBank);
 		
 		boolean spelareSkapad = false;
 		
