@@ -314,23 +314,4 @@ public class PatientRegister implements Serializable
 	    return -1;
 	}
 	
-	/**
-	* Privat metod för att sortera kundlista utifrån vilken tid medicinen ska tas
-	* @param ArrayList<String> kundLista - osorterad lista
-	* @return ArrayList<String> - sorterad lista
-	*/
-	//private ArrayList<String> orteraListaPaTid(ArrayList<String> kundLista)
-	{
-	    //Loopa igenom patientlista
-	    //for (Patient patient : patientLista)
-	    {
-	        //if (namn.equals(patient.getNamn()))
-	        {
-	            //return patientLista.indexOf(patient); //Källa: https://www.tutorialspoint.com/get-the-location-of-an-element-in-java-arraylist
-	        }
-	    }
-	    
-	    //Om loopen ej hittar 
-	    //return -1;
-	}
 }
