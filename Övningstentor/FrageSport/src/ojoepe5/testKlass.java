@@ -14,14 +14,21 @@ public class testKlass
 		SpelaTrivia spelaTrivia = new SpelaTrivia(frageBank);
 		
 		boolean spelareSkapad = false;
+		boolean kategoriSkapad = false;
 		
 		//Prova att skapa en spelare
 		spelareSkapad = spelaTrivia.skapaSpelare("Anna");
-		System.out.println("Skapa Anna  (true): " + spelareSkapad); 
+		System.out.println("Skapa spelare (true): " + spelareSkapad); 
 		
 		//Prova att skapa en spelare igen
 		spelareSkapad = spelaTrivia.skapaSpelare("Anna");
-		System.out.println("Skapa Anna  (false): " + spelareSkapad); 
+		System.out.println("Skapa spelare Anna igen (false): " + spelareSkapad); 
+		
+		//Prova att en kategori
+		kategoriSkapad = frageBank.skapaKategori("Länder");
+		System.out.println("Skapa kategori Länder(true): " + kategoriSkapad); 
+		kategoriSkapad = frageBank.skapaKategori("Länder");
+		System.out.println("Skapa kategori Länder igen (false): " + kategoriSkapad); 
     }
 	
 }

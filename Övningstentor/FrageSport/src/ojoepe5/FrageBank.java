@@ -58,4 +58,36 @@ public class FrageBank
     	return true;
     }
     
+    /**
+    * Metod för att skapa en fråga
+    * NOTE: Jag kollar inte om frågan finns sedan tidigare
+    * @param String text - frågan
+    * @param String svar - svaret på frågan
+    * @return boolean skapad Ja/Nej.
+    */
+    public boolean skapaKategori(String text, String svar)
+    {
+    	//variabler
+    	String kontroll;
+    	
+    	//Kolla så att patienten inte redan har medicinen
+    	for(Kategori kategori : kategoriLista)
+    	{
+    		kontroll = kategori.getNamn();
+    		
+    		if (kontroll.equals(namn))
+    		{
+    			return false; //Medicinen finns sedan tidigare
+    		}
+    	}
+    	
+    	//Skapa medicinen
+    	Kategori kategori = new Kategori(namn);
+    	
+    	//Lägg till i listan
+    	kategoriLista.add(kategori);
+    	
+    	return true;
+    }
+    
 }
