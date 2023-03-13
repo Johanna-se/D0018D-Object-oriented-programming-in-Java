@@ -149,10 +149,12 @@ public class MenyVal
                     System.out.println("Togs medicinen bort? : " + medicinBorta); 
                     break;
                 case 9:
-                    System.out.println("9. Ladda patienter till fil");
+                    System.out.println("9. Ladda patienter från fil");
+                    filHantering.laddaRegister();
                     break;
                 case 10:
-                    System.out.println("10. ...");
+                    System.out.println("10. Spara patienter till fil");
+                    filHantering.sparaRegister();
                     break;
                 case 11:
                     System.out.println("11. ...");
@@ -182,8 +184,8 @@ public class MenyVal
         System.out.printf("%n6. Ta medicin. ");
         System.out.printf("%n7. Printa loggLista för patient. ");
         System.out.printf("%n8. Ta bort medicin. ");
-        System.out.printf("%n9. Ladda patienter till fil");
-        System.out.printf("%n10. ...");
+        System.out.printf("%n9. Ladda patienter från fil");
+        System.out.printf("%n10. Spara patienter till fil");
         System.out.printf("%n11. ...");
         System.out.printf("%nq. Avsluta. ");
             

@@ -30,9 +30,7 @@ public class TestKlass
 		patientSkapad = patientRegister.skapaPatienter("Anna Andersson");
 		System.out.println("Skapa Anna Andersson igen (false): " + patientSkapad); 
 		
-		
-		
-		
+
 		//Nytt TEST
 		System.out.println("");
 	
