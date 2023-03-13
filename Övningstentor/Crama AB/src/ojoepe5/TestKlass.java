@@ -135,8 +135,6 @@ public class TestKlass
 			System.out.println(string);
 		}
 		
-		//Testa filhantering
-		//filHantering.sparaRegister();
 
 		
 		
