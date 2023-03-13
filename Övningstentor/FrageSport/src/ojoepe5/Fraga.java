@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Fraga implements Serializable
 {
@@ -31,7 +30,7 @@ public class Fraga implements Serializable
     * @param ObjectOutputStream streamUt
     * @return void
     */
-    private void readObject(ObjectInputStream streamIn) throws ClassNotFoundException, IOException
+    private void readObject(ObjectInputStream streamIn) throws IOException
     {
         try
         {
