@@ -15,11 +15,16 @@
 
 package ojoepe5;
 
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientRegister 
+public class PatientRegister implements Serializable
 {
 	//Variabler
     private ArrayList<Patient> patientLista;
@@ -30,6 +35,52 @@ public class PatientRegister
     	patientLista = new ArrayList<Patient>();
     }
     
+    //--------------------------------Metoder för IO--------------------------------------------
+    //Källa: https://docs.oracle.com/javase/7/docs/api/java/io/ObjectOutputStream.html
+    //https://howtodoinjava.com/java/collections/arraylist/serialize-deserialize-arraylist/
+    
+    /**
+    * Metod för att kunna läsa objected från en stream. behövs för att implementera Serializable 
+    * @param ObjectOutputStream streamUt
+    * @return void
+    */
+    private void readObject(ObjectInputStream stream) throws ClassNotFoundException, IOException
+    {
+        try
+        {
+            //Läs in patient
+        	patientLista = (ArrayList <Patient>) stream.readObject();
+        }
+        catch (EOFException exc)
+        {
+            //Slut på inläsningen, används även i alt lösning som finns här: https://stackoverflow.com/questions/33135298/objectinputstream-readobject-in-while-loop
+        }
+        catch (ClassNotFoundException ce)
+        {
+            throw new ClassNotFoundException();
+        }
+        catch (IOException e)
+        {
+            throw new IOException();
+        }
+    }
+    
+    /**
+    * Metod för att kunna läsa objected till en stream. behövs för att implementera Serializable 
+    * @param ObjectOutputStream streamUt
+    * @return void
+    */
+    private void writeObject(ObjectOutputStream stream) throws IOException
+    {
+        try
+        {
+            stream.writeObject(patientLista);
+        }
+        catch (IOException e)
+        {
+            throw new IOException();
+        }
+    }
     
     //-------------------------------Metoder för patienter ----------------------------------- 
     

@@ -13,10 +13,15 @@
 
 package ojoepe5;
 
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Patient 
+public class Patient implements Serializable
 {
     private String namn;
     private ArrayList<Medicin> medicinList; //Lista för att förvara patients olika mediciner
@@ -49,6 +54,54 @@ public class Patient
         }
         
         return arrayAttReturnera;
+    }
+    
+//--------------------------------Metoder för IO--------------------------------------------
+    
+    /**
+    * Metod för att kunna läsa objected från en stream. behövs för att implementera Serializable 
+    * @param ObjectOutputStream streamUt
+    * @return void
+    */
+    private void readObject(ObjectInputStream streamIn) throws ClassNotFoundException, IOException
+    {
+        try
+        {
+        	namn = streamIn.readUTF();
+            medicinList = (ArrayList <Medicin>) streamIn.readObject();
+            loggList = (ArrayList <String>) streamIn.readObject();
+        }
+        catch (EOFException exc)
+        {
+            //Slut på inläsningen, 
+        }
+        catch (ClassNotFoundException ce)
+        {
+            throw new ClassNotFoundException();
+        }
+        catch (IOException e)
+        {
+            throw new IOException();
+        }
+    }
+    
+    /**
+    * Metod för att kunna läsa objected till en stream. behövs för att implementera Serializable 
+    * @param ObjectOutputStream streamUt
+    * @return void
+    */
+    private void writeObject(ObjectOutputStream streamUt) throws IOException
+    {
+        try
+        {
+            streamUt.writeUTF(namn);
+            streamUt.writeObject(medicinList);
+            streamUt.writeObject(loggList);
+        }
+        catch (IOException e)
+        {
+            throw new IOException();
+        }
     }
     
     
