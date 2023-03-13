@@ -4,7 +4,6 @@
 */
 package ojoepe5;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner; 
 
@@ -19,10 +18,8 @@ public class MenyVal
         int mangdMedicin;
         int antalGanger;
         
-        ArrayList<String> patientLista = new ArrayList<String>();
         ArrayList<String> patientOMedicinLista = new ArrayList<String>();
         ArrayList<String> loggLista = new ArrayList<String>();
-        ArrayList<String> medicinLista = new ArrayList<String>();
         
         boolean patientSkapad = false;
         boolean medicinSkapad = false;
