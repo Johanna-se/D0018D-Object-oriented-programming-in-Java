@@ -15,5 +15,12 @@ public class FrageBank
     
     //--------------------------------Metoder för IO--------------------------------------------
     
+    //-------------------------------Get metoder-----------------------------------
+    public int getKategoriListaStorlek()
+    {
+        return kategoriLista.size();
+    }
+    
     //-------------------------------Publika metoder----------------------------------- 
+    
 }

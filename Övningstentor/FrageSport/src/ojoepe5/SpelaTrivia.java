@@ -9,7 +9,8 @@ public class SpelaTrivia
     private Spelare dennaSpelare;
     private Kategori dennaKategori;
     private Fraga dennaFraga;
-    private int spelaresPoang;
+    private PoangTavla poangTavla;
+    private FrageBank frageBank ;
     
     
   //konstruktor
@@ -19,7 +20,8 @@ public class SpelaTrivia
     	dennaSpelare = null;
     	dennaKategori = null;
     	dennaFraga = null;
-    	spelaresPoang = 0;
+    	poangTavla = new PoangTavla();
+    	frageBank = new FrageBank();
     }
     
     //--------------------------------Metoder för IO--------------------------------------------
@@ -46,8 +48,31 @@ public class SpelaTrivia
         //Om patienten ej existerar sedan tidigare, skapa och lägg till i listan. 
         Spelare  spelare  = new Spelare (namn);
         spelarLista.add(spelare);
+        
+        //TODO lägg till spelare i poäng tavla !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         return true;
+    	
+    }
+    
+    /**
+    * Metod för att hamta en kategori. 
+    * NOTE: källa: https://www.geeksforgeeks.org/getting-random-elements-from-arraylist-in-java/
+    * @return int - index (i arrayList) som visar vilken kategori som ska användas
+    */
+    public int hamtaKategori()
+    {
+    	//Variabler
+    	int index;
+    	int listansStorlek;
+    	
+    	//Hämta categorilistans storlek
+    	listansStorlek = frageBank.getKategoriListaStorlek();
+    	
+    	//Slumpa ett nummer
+    	index = (int)(Math.random() * listansStorlek);
+    	
+        return index;
     	
     }
     
