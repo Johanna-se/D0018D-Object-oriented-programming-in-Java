@@ -20,6 +20,7 @@ public class TestKlass
 		boolean patientSkapad = false;
 		boolean medicinSkapad = false;
 		ArrayList<String> medicinLista = new ArrayList<String>();
+		FilhanteringMedGUI filHantering = new FilhanteringMedGUI(patientRegister);
 		
 		//Prova att skapa patient, printa svar
 		patientSkapad = patientRegister.skapaPatienter("Anna Andersson");
@@ -135,6 +136,9 @@ public class TestKlass
 		{
 			System.out.println(string);
 		}
+		
+		//Testa filhantering
+		filHantering.sparaRegister();
 
 		
 		

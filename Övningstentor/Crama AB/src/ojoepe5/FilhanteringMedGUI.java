@@ -6,13 +6,13 @@
 
 package ojoepe5;
 import java.io.*;
-
+import javax.swing.*;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-public class FilhanteringMedGUI extends JFrame 
+public class FilhanteringMedGUI 
 {
 	//Komponenter för att spara/ladda fil Källa:https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html
     private JFileChooser hanteraFil;
@@ -26,8 +26,8 @@ public class FilhanteringMedGUI extends JFrame 
     {
         //Skapa en bank
     	patientRegister = register;
-        
-        //Skapa filhanteraren 
+    	
+    	//Skapa filhanteraren 
         //Källor:
         //https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html
         //https://stackoverflow.com/questions/13423950/setting-the-default-jfilechooser-directory-to-a-relative-path-from-jar-location
@@ -35,7 +35,11 @@ public class FilhanteringMedGUI extends JFrame 
         hanteraFil = new JFileChooser();
         hanteraFil.setCurrentDirectory(new File("ojoepe5_files" + File.separator  + ".")); //För att hamna i korrekt mapp
         filter = new FileNameExtensionFilter(".dat, .ser, .tmp filer","dat", "ser", "tmp");
+
     }
+    
+    
+    //---------------------------------------------------Metoder spara/ladda data ---------------------------------------------------------
     
     /**
     * Metod för att spara data i ett register till en fil samt hanterar användarens val.
@@ -48,7 +52,7 @@ public class FilhanteringMedGUI extends JFrame 
         
         //Variabler 
         int anvandarVal;
-        int returVarde = hanteraFil.showSaveDialog(frame);  
+        int returVarde = hanteraFil.showSaveDialog(null);  
         File fil;
 
         if (returVarde == JFileChooser.APPROVE_OPTION)
@@ -61,12 +65,12 @@ public class FilhanteringMedGUI extends JFrame 
                 if(fil.exists()) //Om filen finns sedan tidigare OBS: hanteraFil.getDialogType() == 1 == SAVE_DIALOG
                 {
                     //Varna användaren att filen finns sedan tidigare och kommer skrivas över, ge val och handla efter detta
-                    anvandarVal = JOptionPane.showConfirmDialog(frame, "Filen du valt finns redan, vill du skriva över den?", "Befintlig fil", JOptionPane.YES_NO_OPTION);
+                    anvandarVal = JOptionPane.showConfirmDialog(null, "Filen du valt finns redan, vill du skriva över den?", "Befintlig fil", JOptionPane.YES_NO_OPTION);
                     
                     switch(anvandarVal)
                     {
                         case JOptionPane.YES_OPTION:
-                            sparaData(fil);
+                            //sparaData(fil);
                             break;
                         case JOptionPane.NO_OPTION:
                             break;
@@ -87,14 +91,14 @@ public class FilhanteringMedGUI extends JFrame 
     * Metod för att ladda data för ett register in i programmet från en fil samt hanterar användarens val.
     * @return void
     */
-    public BankLogic laddaRegister()
+    public PatientRegister laddaRegister()
     {
         //Sätt filter
         hanteraFil.setFileFilter(filter);
         
         //Variabler 
         int anvandarVal;
-        int returVarde = hanteraFil.showOpenDialog(frame);
+        int returVarde = hanteraFil.showOpenDialog(null);
         File fil;
         
         if (returVarde == JFileChooser.APPROVE_OPTION)
@@ -102,17 +106,17 @@ public class FilhanteringMedGUI extends JFrame 
             fil = hanteraFil.getSelectedFile();
             
             //Varana användaren att befintliga kunder kommer att skrivas över
-            anvandarVal = JOptionPane.showConfirmDialog(frame, "Du kommer ladda in nya kunder till banken från fil, eventuella icke-sparade kunder kommer att försvinna, vill du fortsätta?", "Ladda kunder från fil", JOptionPane.YES_NO_OPTION);
+            anvandarVal = JOptionPane.showConfirmDialog(null, "Du kommer ladda in nya kunder till banken från fil, eventuella icke-sparade kunder kommer att försvinna, vill du fortsätta?", "Ladda kunder från fil", JOptionPane.YES_NO_OPTION);
                     
             switch(anvandarVal)
             {
                 case JOptionPane.YES_OPTION:
-                    try
+                    /**try
                     {
                         ObjectInputStream infil = new ObjectInputStream(new FileInputStream(fil));
-                        bankLogic = (BankLogic) infil.readObject(); //Läs in banken från fil
+                        patientRegister = (PatientRegister) infil.readObject(); //Läs in från fil
                         infil.close();
-                        JOptionPane.showMessageDialog(null, "Bankdata laddades"); //Meddela användaren att banken laddades
+                        JOptionPane.showMessageDialog(null, "Data laddades"); //Meddela användaren att banken laddades
                     }
                      catch (EOFException exc)
                      {
@@ -127,7 +131,7 @@ public class FilhanteringMedGUI extends JFrame 
                      {
                          e.printStackTrace(System.out);
                          JOptionPane.showMessageDialog(null, "Det gick inte att läsa från filen");
-                      }
+                      }*/
                       break;
                 case JOptionPane.NO_OPTION:
                      break;
@@ -135,7 +139,30 @@ public class FilhanteringMedGUI extends JFrame 
                      break;
             }
         }
-        return bankLogic;
+        return patientRegister;
     }
 
+    //------------------------------------------------Privata metoder ------------------------------------------------
+    
+    
+    /**
+    * Metod för att sparadata till fil
+    * @return void
+    */
+    private void sparaData(File fil)
+    {
+        try
+        {
+            ObjectOutputStream utfil = new ObjectOutputStream (new FileOutputStream(fil));
+            utfil.writeObject(patientRegister);
+            utfil.close();
+            JOptionPane.showMessageDialog(null, "Data sparades");
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace(System.out);
+            JOptionPane.showMessageDialog(null, "Det gick inte att läsa till filen");
+            
+        }
+    }
 }

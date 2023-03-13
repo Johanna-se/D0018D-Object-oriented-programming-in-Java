@@ -32,9 +32,10 @@ public class MenyVal
         long tidsIntervall;
 
         
-        //Skapa patientregister
+        //Skapa egna object
         PatientRegister patientRegister  = new PatientRegister();
         Tid klockan = new Tid();
+        FilhanteringMedGUI filHantering = new FilhanteringMedGUI(patientRegister);
         
       //Welcome user 
         System.out.printf("_________________________________________%n"); 
