@@ -189,7 +189,6 @@ public class FrageBank
     
     /**
 	* Metod för att skapa en fråga
-	* NOTE: Jag kollar inte om frågan finns sedan tidigare
 	* @param String nyText - frågan
 	* @param String nySvar - svaret på frågan
 	* @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
@@ -222,9 +221,8 @@ public class FrageBank
     * Metod för att skapa en fråga
     * NOTE: Jag kollar inte om frågan finns sedan tidigare
     * @param String kategori - vilken kategori frågan tillhör
-    * @param String svar - svaret på frågan
-    * @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
-    * @return boolean skapad Ja/Nej.
+    * @param int frageID - frågans ID
+    * @return boolean borttagen Ja/Nej.
     */
     //public boolean taBortFraga(String kategori, int frageID)
     {
