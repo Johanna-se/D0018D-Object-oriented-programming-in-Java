@@ -5,6 +5,8 @@
 
 package ojoepe5;
 
+import java.util.ArrayList;
+
 public class testKlass 
 {
 	public static void main(String[]args)
@@ -16,6 +18,8 @@ public class testKlass
 		boolean spelareSkapad = false;
 		boolean kategoriSkapad = false;
 		boolean fragaSkapad = false;
+		
+		ArrayList<String> kategoriLista = new ArrayList<String>();
 		
 		//Prova att skapa en spelare
 		spelareSkapad = spelaTrivia.skapaSpelare("Anna");
@@ -34,6 +38,14 @@ public class testKlass
 		//Skapa en fråga
 		fragaSkapad = frageBank.skapaFraga("Vilket land kommer IKEA ifrån", "Sverige", "Länder");
 		System.out.println("Skapa fråga (sant): " + kategoriSkapad); 
+		
+		//Hämta lista med kategorier och printa
+		kategoriLista = frageBank.getKategoriNamn();
+		System.out.println("Lista med kategorier): "); 
+		for (String string: kategoriLista)
+		{
+			System.out.println(string); 
+		}
     }
 	
 }

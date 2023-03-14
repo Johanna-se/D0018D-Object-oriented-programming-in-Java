@@ -184,7 +184,7 @@ public class FrageBank
 	public boolean editeraFraga(String nyText, String nySvar, int frageID, String kategoriNamn)
 	{
 		//Variabler
-		int kategoriPos;
+		int kategoriPos = -1;
 		
 		//Hitta kategoring
 		for(Kategori kategori : kategoriLista)
@@ -194,8 +194,14 @@ public class FrageBank
     			kategoriPos = kategoriLista.indexOf(kategori);
     		}
     	}
-
-		//TODO
+		
+		//Om kategorin ej hittades
+		if (kategoriPos == -1)
+		{
+			return false;
+		}
+		
+		return kategoriLista.get(kategoriPos).editeraFraga(nyText, nySvar, frageID);
 	}
     
     /**
