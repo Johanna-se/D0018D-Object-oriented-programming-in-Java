@@ -207,26 +207,27 @@ public class FrageBank
     
     /**
     * Metod för att skapa en fråga
-    * NOTE: Jag kollar inte om frågan finns sedan tidigare
-    * @param String kategori - vilken kategori frågan tillhör
+    * NOTE: Jag springer igenom alla kategorier så att användaren endast behöver skriva FrågeID
     * @param int frageID - frågans ID
     * @return boolean borttagen Ja/Nej.
     */
     public boolean taBortFraga(String kategori, int frageID)
     {
     	//Variabler
-    	int kategoriPos = -1;
+    	boolean borttagen;
     	
-    	kategoriPos = finnsKategori(kategori);
-    					
-    	//Om kategorin ej hittades
-    	if (kategoriPos == -1)
+    	//Loopa igenom kategoriLista
+    	for (Kategori kategori : kategoriLista)
     	{
-    		return false;
+    		borttagen = kategori.taBortFraga(frageID);
+    		
+    		if (borttagen == true)
+    		{
+    			return true; 
+    		}
     	}
     	
-    	//Ta bort frågan
-    	return kategoriLista.get(kategoriPos).taBortFraga(frageID);
+    	return false;
     }
     
     /**
