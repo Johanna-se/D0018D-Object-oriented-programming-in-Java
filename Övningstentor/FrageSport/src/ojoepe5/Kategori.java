@@ -98,6 +98,7 @@ public class Kategori
 	* Metod för att editera en fråga
 	* @param String text - ny text till frågan
 	* @param String svar - svaret på frågan
+	* @return boolean ändrad Ja/Nej.
 	*/
 	public boolean editeraFraga(String text, String svar, int frageID)
 	{
@@ -120,13 +121,13 @@ public class Kategori
 		}
      	
      	//Om det finns text
-		if (text != null)
+		if (text.isEmpty())
 		{
 			frageLista.get(pos).setFraga(text);
 		}
 		
 		//Om det finns svar
-		if (svar != null)
+		if (svar.isEmpty())
 		{
 			frageLista.get(pos).setSvar(svar);
 		}

@@ -181,7 +181,7 @@ public class FrageBank
     * @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
     * @return boolean skapad Ja/Nej.
     */
-    //public boolean taBortFraga(String text, String svar, String kategoriNamn)
+    //public boolean taBortFraga(String kategori, int frageID)
     {
     	//Variabler
         //int kategoriPos;
