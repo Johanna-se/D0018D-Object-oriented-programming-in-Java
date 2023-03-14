@@ -190,14 +190,14 @@ public class FrageBank
 	public boolean editeraFraga(String nyText, String nySvar, int frageID)
 	{
 		//Variabler
-    	boolean borttagen;
+    	boolean andrad;
     	
     	//Loopa igenom kategoriLista
     	for (Kategori kategori : kategoriLista)
     	{
-    		borttagen = kategori.editeraFraga(nyText, nySvar, frageID);
+    		andrad = kategori.editeraFraga(nyText, nySvar, frageID);
     		
-    		if (borttagen == true)
+    		if (andrad == true)
     		{
     			return true; 
     		}
