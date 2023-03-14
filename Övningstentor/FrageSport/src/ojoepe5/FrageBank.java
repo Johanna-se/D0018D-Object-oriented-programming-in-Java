@@ -227,8 +227,6 @@ public class FrageBank
     	
     	//Ta bort frågan
     	return kategoriLista.get(kategoriPos).taBortFraga(frageID);
-
-        //TODO
     }
     
     /**

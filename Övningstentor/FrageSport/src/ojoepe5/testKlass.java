@@ -63,6 +63,10 @@ public class testKlass
 		}
 		kategoriBorttagen = frageBank.taBortKategori("Städer");
 		System.out.println("Kategori Städer borta igen(false): " + kategoriBorttagen);
+		
+		//Skapa en fråga
+		fragaSkapad = frageBank.skapaFraga("Vilket land kommer IKEA ifrån", "Sverige", "Länder");
+		System.out.println("Skapa fråga (sant): " + kategoriSkapad);
     }
 	
 }
