@@ -162,7 +162,7 @@ public class Kategori
 	* @param int frageID 
 	* @return ArrayList<String> lista med frågor
 	*/
-	public ArrayList<String> taBortFraga()
+	public ArrayList<String> hamtaAllaFrager()
 	{
 		//Variabler
     	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
