@@ -126,19 +126,33 @@ public class FrageBank
     
     
     /**
-     * Metod för att skapa en fråga
-     * NOTE: Jag kollar inte om frågan finns sedan tidigare
-     * @param String text - frågan
-     * @param String svar - svaret på frågan
-     * @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
-     * @return boolean skapad Ja/Nej.
+     * Metod för att ta bort en kategori
+     * @param String kategoriNamn - vilken kategorti 
+     * @return boolean bortagen Ja/Nej.
      */
-     //public boolean taBortKategori(String text, String svar, String kategoriNamn)
+     public boolean taBortKategori(String kategoriNamn)
      {
-    	 //Variabler
-    	 //int kategoriPos;
-
-         //TODO
+    	//Variabler
+ 		int kategoriPos = -1;
+ 		
+ 		//Hitta kategoring
+ 		for(Kategori kategori : kategoriLista)
+     	{
+     		if (kategori.getNamn().equals(kategoriNamn))
+     		{
+     			kategoriPos = kategoriLista.indexOf(kategori);
+     		}
+     	}
+ 		
+ 		//Om kategorin ej hittades
+ 		if (kategoriPos == -1)
+ 		{
+ 			return false;
+ 		}
+ 		
+ 		kategoriLista.remove(kategoriPos);
+ 		
+ 		return true;
      }
      
      

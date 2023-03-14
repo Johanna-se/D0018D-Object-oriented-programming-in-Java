@@ -17,6 +17,7 @@ public class testKlass
 		
 		boolean spelareSkapad = false;
 		boolean kategoriSkapad = false;
+		boolean kategoriBorttagen = false;
 		boolean fragaSkapad = false;
 		
 		ArrayList<String> kategoriLista = new ArrayList<String>();
@@ -34,6 +35,10 @@ public class testKlass
 		System.out.println("Skapa kategori Länder(true): " + kategoriSkapad); 
 		kategoriSkapad = frageBank.skapaKategori("Länder");
 		System.out.println("Skapa kategori Länder igen (false): " + kategoriSkapad); 
+		kategoriSkapad = frageBank.skapaKategori("Städer");
+		System.out.println("Skapa kategori Städer(true): " + kategoriSkapad); 
+		kategoriSkapad = frageBank.skapaKategori("Djur");
+		System.out.println("Skapa kategori Djur(true): " + kategoriSkapad); 
 		
 		//Skapa en fråga
 		fragaSkapad = frageBank.skapaFraga("Vilket land kommer IKEA ifrån", "Sverige", "Länder");
@@ -41,11 +46,23 @@ public class testKlass
 		
 		//Hämta lista med kategorier och printa
 		kategoriLista = frageBank.getKategoriNamn();
-		System.out.println("Lista med kategorier): "); 
+		System.out.println("Lista med kategorier: "); 
 		for (String string: kategoriLista)
 		{
 			System.out.println(string); 
 		}
+		
+		//Plocka bort en kategori
+		kategoriBorttagen = frageBank.taBortKategori("Städer");
+		System.out.println("Kategori Städer borta(true): " + kategoriSkapad);
+		kategoriLista = frageBank.getKategoriNamn();
+		System.out.println("Lista med kategorier: "); 
+		for (String string: kategoriLista)
+		{
+			System.out.println(string); 
+		}
+		kategoriBorttagen = frageBank.taBortKategori("Städer");
+		System.out.println("Kategori Städer borta igen(false): " + kategoriSkapad);
     }
 	
 }
