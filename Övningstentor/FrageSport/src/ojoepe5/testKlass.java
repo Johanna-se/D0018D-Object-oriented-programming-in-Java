@@ -110,7 +110,10 @@ public class testKlass
 		}
 		
 		//Spara till Fil
-		filhanteringMedGUI.sparaFrageBank();
+		//filhanteringMedGUI.sparaFrageBank();
+		
+		//Ladda från fil
+		//frageBank = filhanteringMedGUI.laddaFrageBank();
     }
 	
 }

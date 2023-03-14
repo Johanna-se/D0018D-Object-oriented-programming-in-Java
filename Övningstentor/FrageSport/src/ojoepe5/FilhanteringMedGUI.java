@@ -91,7 +91,7 @@ public class FilhanteringMedGUI
     * Metod för att ladda data för ett register in i programmet från en fil samt hanterar användarens val.
     * @return void
     */
-    public FrageBank laddaRegister()
+    public FrageBank laddaFrageBank()
     {
         //Sätt filter
         hanteraFil.setFileFilter(filter);
