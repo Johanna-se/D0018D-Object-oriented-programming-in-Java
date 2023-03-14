@@ -165,21 +165,14 @@ public class Kategori
 	public ArrayList<String> taBortFraga()
 	{
 		//Variabler
-		int pos = -1;
+    	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
 		
-		//Hitta korrekt fråga
-		pos = finnsFrageID(frageID);
-		
-		//Om frågeID ej hittades
-		if (pos == -1)
-		{
-			return false;
-		}
-		
-		//Ta bort frågan
-		frageLista.remove(pos);
-		
-		return true;
+    	for (Fraga fraga : frageLista)
+    	 {
+    		 arrayAttReturnera.add(fraga.toString());
+    	 }
+    	 
+    	 return arrayAttReturnera;
 	
      }
 	
