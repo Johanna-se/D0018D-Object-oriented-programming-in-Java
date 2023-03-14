@@ -99,14 +99,14 @@ public class Fraga implements Serializable
      }
      
      //-------------------------------Set metoder-----------------------------------
-     public String setFraga(String text)
+     public void setFraga(String text)
      {
-    	 return fraga;
+    	 fraga = text;
      }
     
-     public String setSvar(String text)
+     public void setSvar(String text)
      {
-    	 return svar;
+    	 svar = text;
      }
      
      //-------------------------------metoder-----------------------------------

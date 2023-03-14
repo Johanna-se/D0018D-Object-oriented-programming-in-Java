@@ -45,7 +45,7 @@ public class testKlass
 		
 		//Skapa en fråga
 		fragaSkapad = frageBank.skapaFraga("Vilket land kommer IKEA ifrån", "Sverige", "Länder");
-		System.out.println("Skapa fråga (sant): " + kategoriSkapad); 
+		System.out.println("Skapa fråga (sant): " + fragaSkapad); 
 		
 		//Hämta lista med kategorier och printa
 		kategoriLista = frageBank.getKategoriNamn();
@@ -69,7 +69,7 @@ public class testKlass
 		
 		//Skapa en fråga
 		fragaSkapad = frageBank.skapaFraga("Vilket land börjar på K och slutar på ina", "Kina", "Länder");
-		System.out.println("Skapa fråga (sant): " + kategoriSkapad);
+		System.out.println("Skapa fråga (sant): " + fragaSkapad);
 		
 		//Hämta lista med frågor för kategori länder
 		fragorLista = frageBank.hamtaListaMedFragor("Länder");
