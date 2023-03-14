@@ -11,7 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class Kategori 
+public class Kategori
 {
 	//Variabler
     private ArrayList<Fraga> frageLista;
@@ -93,4 +93,6 @@ public class Kategori
     	//Lägg till i listan
     	frageLista.add(fraga);
     }
+    
+    
 }

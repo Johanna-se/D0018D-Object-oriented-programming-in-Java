@@ -13,15 +13,23 @@ import java.io.Serializable;
 
 public class Fraga implements Serializable
 {
+	//Klass-variabel
+    protected static int senastAnvandaFrageID = 1000; //gemensam för alla kategorier object 
+    //NOTE: Jag har valt att ange frågornas ID som en klass-variabel så varje fråga får ett unikt nummer på detta sätt
+	
 	//Variabler
     private String fraga;
     private String svar;
+    private int frageID;
     
     //konstruktor
     public Fraga (String fraga, String svar)
     {
+    	senastAnvandaFrageID++;
+    	
     	this.fraga = fraga;
     	this.svar = svar;
+    	this.frageID = senastAnvandaFrageID;
     }
     
     //--------------------------------Metoder för IO--------------------------------------------
