@@ -21,6 +21,7 @@ public class testKlass
 		boolean fragaSkapad = false;
 		
 		ArrayList<String> kategoriLista = new ArrayList<String>();
+		ArrayList<String> fragorLista = new ArrayList<String>();
 		
 		//Prova att skapa en spelare
 		spelareSkapad = spelaTrivia.skapaSpelare("Anna");
@@ -67,6 +68,14 @@ public class testKlass
 		//Skapa en fråga
 		fragaSkapad = frageBank.skapaFraga("Vilket land börjar på K och slutar på ina", "Kina", "Länder");
 		System.out.println("Skapa fråga (sant): " + kategoriSkapad);
+		
+		//Hämta lista med frågor för kategori länder
+		fragorLista = frageBank.hamtaListaMedFragor("Länder");
+		System.out.println("Lista med frågor från kategori Länder: "); 
+		for (String string: fragorLista)
+		{
+			System.out.println(string); 
+		}
     }
 	
 }

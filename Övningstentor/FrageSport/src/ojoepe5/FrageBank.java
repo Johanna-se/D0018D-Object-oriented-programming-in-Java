@@ -230,7 +230,8 @@ public class FrageBank
     }
     
     /**
-	* Metod för att skapa en fråga
+	* Metod för att hämta en kategoris frågor
+	* NOTE: jag valde att ta det kategori för kategori för att det ska bli lättare att hitta frågan man vill ändra.
 	* @param String kategoriNamn - vilken kategorti frågan tillhör 
 	* @return ArrayList<String> - lista med frågeID, fråga och svar
 	*/
@@ -253,7 +254,6 @@ public class FrageBank
     	
     	return arrayAttReturnera;
 
-		//TODO
      }
     
     
