@@ -185,6 +185,39 @@ public class Kategori implements Serializable
 	
      }
 	
+	/**
+	* Metod för att hämta nästa fråga i kategoring
+	* @param int frageID 
+	* @return ArrayList<String> lista med fråga och svar
+	*/
+	public ArrayList<String> hamtaNastaFrager()
+	{
+		//Variabler
+    	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
+    	
+    	//Kolla så att det finns frågor under kategorin
+    	if (frageLista.isEmpty())
+    	{
+    		arrayAttReturnera.add("Det saknas frågor för denna kategori, prova nästa");
+    		return arrayAttReturnera;
+    	}
+    	
+    	//Kolla om det är dax att resetta nästaFråga (börja om)
+    	if (nastaFraga > arrayAttReturnera.size())
+    	{
+    		nastaFraga = 0;
+    	}
+		
+    	//Hämta frågan och lägg på pos 0
+    	arrayAttReturnera.add(frageLista.get(nastaFraga).getFraga());
+    	
+    	//Hämta svaret och lägg på pos 1
+    	arrayAttReturnera.add(frageLista.get(nastaFraga).getSvar());
+
+    	 return arrayAttReturnera;
+	
+     }
+	
 	//-----------------------------------------Privata Metoder -------------------------------------------------    
     
 	/**

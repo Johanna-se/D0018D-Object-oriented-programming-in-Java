@@ -261,8 +261,6 @@ public class FrageBank implements Serializable
 
      }
     
-    
-     
 	/**
 	* Metod för att skapa en fråga
 	* NOTE: Jag kollar inte om frågan finns sedan tidigare
@@ -271,7 +269,7 @@ public class FrageBank implements Serializable
 	* @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
 	* @return boolean skapad Ja/Nej.
 	*/
-	//public boolean hamtaNastaFraga(String kategoriNamn)
+	//public boolean hamtaNastaFraga(int kategoriPos)
 	{
 		//Variabler
 		//int kategoriPos;
