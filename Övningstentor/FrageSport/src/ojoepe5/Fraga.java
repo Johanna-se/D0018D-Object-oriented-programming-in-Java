@@ -97,4 +97,16 @@ public class Fraga implements Serializable
      {
     	 return frageID;
      }
+     
+     //-------------------------------Set metoder-----------------------------------
+     public String setFraga(String text)
+     {
+    	 return fraga;
+     }
+    
+     public String setSvar(String text)
+     {
+    	 return svar;
+     }
+
 }

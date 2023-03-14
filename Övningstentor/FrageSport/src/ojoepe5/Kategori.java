@@ -94,5 +94,48 @@ public class Kategori
     	frageLista.add(fraga);
     }
     
+    /**
+	* Metod för att editera en fråga
+	* @param String text - ny text till frågan
+	* @param String svar - svaret på frågan
+	*/
+	public boolean editeraFraga(String text, String svar, int frageID)
+	{
+		//Variabler
+		int pos = -1;
+		
+		//Hitta korrekt fråga
+		for (Fraga fraga : frageLista)
+		{
+			if (frageID == fraga.getfrageID())
+			{
+				pos = frageLista.indexOf(fraga);
+			}
+		}
+		
+		//Om frågeID ej hittades
+		if (pos == -1)
+		{
+			return false;
+		}
+     	
+     	//Om det finns text
+		if (text != null)
+		{
+			frageLista.get(pos).setFraga(text);
+		}
+		
+		//Om det finns svar
+		if (svar != null)
+		{
+			frageLista.get(pos).setSvar(svar);
+		}
+		
+		return true;
+	
+     }
+    
+    
+    
     
 }
