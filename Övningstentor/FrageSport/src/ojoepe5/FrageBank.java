@@ -185,24 +185,25 @@ public class FrageBank
 	* Metod för att skapa en fråga
 	* @param String nyText - frågan
 	* @param String nySvar - svaret på frågan
-	* @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
 	* @return boolean editerad Ja/Nej.
 	*/
-	public boolean editeraFraga(String nyText, String nySvar, int frageID, String kategoriNamn)
+	public boolean editeraFraga(String nyText, String nySvar, int frageID)
 	{
 		//Variabler
-		int kategoriPos = -1;
-		
-		//Hitta kategoring
-		kategoriPos = finnsKategori(kategoriNamn);
-		
-		//Om kategorin ej hittades
-		if (kategoriPos == -1)
-		{
-			return false;
-		}
-		
-		return kategoriLista.get(kategoriPos).editeraFraga(nyText, nySvar, frageID);
+    	boolean borttagen;
+    	
+    	//Loopa igenom kategoriLista
+    	for (Kategori kategori : kategoriLista)
+    	{
+    		borttagen = kategori.editeraFraga(nyText, nySvar, frageID);
+    		
+    		if (borttagen == true)
+    		{
+    			return true; 
+    		}
+    	}
+    	
+    	return false;
 	}
     
     /**

@@ -19,6 +19,7 @@ public class testKlass
 		boolean kategoriSkapad = false;
 		boolean kategoriBorttagen = false;
 		boolean fragaSkapad = false;
+		boolean fragaBorttagen = false;
 		
 		ArrayList<String> kategoriLista = new ArrayList<String>();
 		ArrayList<String> fragorLista = new ArrayList<String>();
@@ -76,6 +77,22 @@ public class testKlass
 		{
 			System.out.println(string); 
 		}
+		
+		// Ta bort fråga
+		fragaBorttagen = frageBank.taBortFraga(1002);
+		System.out.println("Ta bort fråga med ID 1002: (true)" + fragaBorttagen); 
+		fragaBorttagen = frageBank.taBortFraga(1002);
+		System.out.println("Ta bort fråga med ID 1002 igen: (false)" + fragaBorttagen); 
+		//Hämta lista med frågor för kategori länder
+		fragorLista = frageBank.hamtaListaMedFragor("Länder");
+		System.out.println("Lista med frågor från kategori Länder: "); 
+		for (String string: fragorLista)
+		{
+			System.out.println(string); 
+		}
+		
+		//Editera fråga
+		
     }
 	
 }
