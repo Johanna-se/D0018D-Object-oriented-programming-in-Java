@@ -124,6 +124,7 @@ public class FrageBank
         return arrayAttReturnera;
     }
     
+    
     /**
      * Metod för att skapa en fråga
      * NOTE: Jag kollar inte om frågan finns sedan tidigare
