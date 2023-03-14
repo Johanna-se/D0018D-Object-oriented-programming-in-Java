@@ -9,9 +9,10 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class FrageBank 
+public class FrageBank implements Serializable
 {
 	//Variabler
     private ArrayList<Kategori> kategoriLista;
