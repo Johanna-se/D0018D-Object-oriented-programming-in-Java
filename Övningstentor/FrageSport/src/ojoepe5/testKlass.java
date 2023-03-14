@@ -14,6 +14,7 @@ public class testKlass
 		//Variabler
 		FrageBank frageBank = new FrageBank();
 		SpelaTrivia spelaTrivia = new SpelaTrivia(frageBank);
+		FilhanteringMedGUI filhanteringMedGUI = new FilhanteringMedGUI(frageBank);
 		
 		boolean spelareSkapad = false;
 		boolean kategoriSkapad = false;
@@ -107,6 +108,9 @@ public class testKlass
 		{
 			System.out.println(string); 
 		}
+		
+		//Spara till Fil
+		filhanteringMedGUI.sparaFrageBank();
     }
 	
 }
