@@ -118,11 +118,19 @@ public class Kategori
      	//Om det finns text
 		if (text.isEmpty())
 		{
+			//Skippa om tom
+		}
+		else
+		{
 			frageLista.get(pos).setFraga(text);
 		}
 		
 		//Om det finns svar
 		if (svar.isEmpty())
+		{
+			//Skippa om tom
+		}
+		else
 		{
 			frageLista.get(pos).setSvar(svar);
 		}

@@ -93,8 +93,14 @@ public class testKlass
 		}
 		
 		//Editera fråga
-		fragaAndrad = frageBank.editeraFraga("Vilket land börjar på K och slutar på ina", "Kina", 1001);
+		fragaAndrad = frageBank.editeraFraga("Vilket land på F ligger granne med Sverige", "Finland", 1001);
 		System.out.println("Editerat fråga 1001 (true)" + fragaAndrad); 
+		
+		//Skapa en fråga
+		fragaSkapad = frageBank.skapaFraga("Vilket land börjar på K och slutar på ina", "Kina", "Länder");
+		System.out.println("Skapa fråga (sant): " + fragaSkapad);
+		
+		//Hämta lista med frågor för kategori länder
 		fragorLista = frageBank.hamtaListaMedFragor("Länder");
 		System.out.println("Lista med frågor från kategori Länder: "); 
 		for (String string: fragorLista)

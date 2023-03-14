@@ -183,8 +183,10 @@ public class FrageBank
     
     /**
 	* Metod för att skapa en fråga
+	* NOTE: Jag springer igenom alla kategorier så att användaren endast behöver skriva FrågeID
 	* @param String nyText - frågan
 	* @param String nySvar - svaret på frågan
+	* @param int frageID
 	* @return boolean editerad Ja/Nej.
 	*/
 	public boolean editeraFraga(String nyText, String nySvar, int frageID)
