@@ -93,7 +93,7 @@ public class FrageBank
     		
     		if (kontroll.equals(namn))
     		{
-    			return false; //Medicinen finns sedan tidigare
+    			return false;
     		}
     	}
     	
@@ -136,13 +136,7 @@ public class FrageBank
  		int kategoriPos = -1;
  		
  		//Hitta kategoring
- 		for(Kategori kategori : kategoriLista)
-     	{
-     		if (kategori.getNamn().equals(kategoriNamn))
-     		{
-     			kategoriPos = kategoriLista.indexOf(kategori);
-     		}
-     	}
+ 		kategoriPos = finnsKategori(kategoriNamn);
  		
  		//Om kategorin ej hittades
  		if (kategoriPos == -1)
@@ -200,13 +194,7 @@ public class FrageBank
 		int kategoriPos = -1;
 		
 		//Hitta kategoring
-		for(Kategori kategori : kategoriLista)
-    	{
-    		if (kategori.getNamn().equals(kategoriNamn))
-    		{
-    			kategoriPos = kategoriLista.indexOf(kategori);
-    		}
-    	}
+		kategoriPos = finnsKategori(kategoriNamn);
 		
 		//Om kategorin ej hittades
 		if (kategoriPos == -1)
@@ -224,10 +212,18 @@ public class FrageBank
     * @param int frageID - frågans ID
     * @return boolean borttagen Ja/Nej.
     */
-    //public boolean taBortFraga(String kategori, int frageID)
+    public boolean taBortFraga(String kategori, int frageID)
     {
     	//Variabler
-        //int kategoriPos;
+    	int kategoriPos = -1;
+    	
+    	kategoriPos = finnsKategori(kategori);
+    					
+    	//Om kategorin ej hittades
+    	if (kategoriPos == -1)
+    	{
+    		return false;
+    	}
 
         //TODO
     }
@@ -275,7 +271,7 @@ public class FrageBank
 	*/
 	private int finnsKategori(String namn)
 	{
-		//Loopa igenom patientlista
+		//Loopa igenom kategoriLista
 		for (Kategori kategori : kategoriLista)
 		{
 			if (namn.equals(kategori.getNamn()))
