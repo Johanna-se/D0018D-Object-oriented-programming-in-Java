@@ -65,7 +65,7 @@ public class testKlass
 		System.out.println("Kategori Städer borta igen(false): " + kategoriBorttagen);
 		
 		//Skapa en fråga
-		fragaSkapad = frageBank.skapaFraga("Vilket land kommer IKEA ifrån", "Sverige", "Länder");
+		fragaSkapad = frageBank.skapaFraga("Vilket land börjar på K och slutar på ina", "Kina", "Länder");
 		System.out.println("Skapa fråga (sant): " + kategoriSkapad);
     }
 	
