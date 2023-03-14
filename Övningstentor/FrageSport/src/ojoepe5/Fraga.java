@@ -108,5 +108,17 @@ public class Fraga implements Serializable
      {
     	 return svar;
      }
+     
+     //-------------------------------metoder-----------------------------------
+	/**
+	* Metod för att skriva över toString
+ 	* @param LocalTime tidNu - utgår från vad klockan inom programmet är nu för att kolla om det är tid att ta medicinen
+ 	* @return String
+ 	*/
+     @Override
+     public String toString()
+     {
+     	return "ID: " + String.valueOf(frageID) + " Fråga: " + fraga + " SVAR: " + svar;
+     }
 
 }
