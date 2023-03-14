@@ -86,7 +86,7 @@ public class FrageBank
     	//variabler
     	String kontroll;
     	
-    	//Kolla så att patienten inte redan har medicinen
+    	//Kolla om kategorin finns
     	for(Kategori kategori : kategoriLista)
     	{
     		kontroll = kategori.getNamn();
@@ -174,9 +174,34 @@ public class FrageBank
     }
     
     /**
+	* Metod för att skapa en fråga
+	* NOTE: Jag kollar inte om frågan finns sedan tidigare
+	* @param String nyText - frågan
+	* @param String nySvar - svaret på frågan
+	* @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
+	* @return boolean editerad Ja/Nej.
+	*/
+	public boolean editeraFraga(String nyText, String nySvar, int frageID, String kategoriNamn)
+	{
+		//Variabler
+		int kategoriPos;
+		
+		//Hitta kategoring
+		for(Kategori kategori : kategoriLista)
+    	{
+    		if (kategori.getNamn().equals(kategoriNamn))
+    		{
+    			kategoriPos = kategoriLista.indexOf(kategori);
+    		}
+    	}
+
+		//TODO
+	}
+    
+    /**
     * Metod för att skapa en fråga
     * NOTE: Jag kollar inte om frågan finns sedan tidigare
-    * @param String text - frågan
+    * @param String kategori - vilken kategori frågan tillhör
     * @param String svar - svaret på frågan
     * @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
     * @return boolean skapad Ja/Nej.
@@ -205,21 +230,7 @@ public class FrageBank
 		//TODO
      }
     
-    /**
-	* Metod för att skapa en fråga
-	* NOTE: Jag kollar inte om frågan finns sedan tidigare
-	* @param String text - frågan
-	* @param String svar - svaret på frågan
-	* @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
-	* @return boolean skapad Ja/Nej.
-	*/
-	//public boolean editeraFraga(String nyText, String NySvar, int posFraga, String kategoriNamn)
-	{
-		//Variabler
-		//int kategoriPos;
-
-		//TODO
-	}
+    
      
 	/**
 	* Metod för att skapa en fråga
