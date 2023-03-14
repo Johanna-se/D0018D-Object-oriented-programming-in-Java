@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Fraga implements Serializable
 {
 	//Klass-variabel
-    protected static int senastAnvandaFrageID = 1000; //gemensam för alla kategorier object 
+    protected static int senastAnvandaFrageID = 1000; //gemensam för alla fråge object 
     //NOTE: Jag har valt att ange frågornas ID som en klass-variabel så varje fråga får ett unikt nummer på detta sätt
 	
 	//Variabler
@@ -44,6 +44,13 @@ public class Fraga implements Serializable
         {
         	fraga = streamIn.readUTF();
         	svar = streamIn.readUTF();
+        	frageID = streamIn.readInt();
+        	
+        	//senastAnvandaKontoNr höjs
+            if (senastAnvandaFrageID < frageID )
+            {
+            	senastAnvandaFrageID = frageID++;
+            }
         }
         catch (EOFException exc)
         {
@@ -66,6 +73,8 @@ public class Fraga implements Serializable
          {
              streamUt.writeUTF(fraga);
              streamUt.writeUTF(svar);
+             streamUt.writeInt(frageID);
+             
          }
          catch (IOException e)
          {
@@ -82,5 +91,10 @@ public class Fraga implements Serializable
      public String getSvar()
      {
     	 return svar;
+     }
+     
+     public int getfrageID()
+     {
+    	 return frageID;
      }
 }
