@@ -262,19 +262,14 @@ public class FrageBank implements Serializable
      }
     
 	/**
-	* Metod för att skapa en fråga
+	* Metod för att hämta nästa fråga
 	* NOTE: Jag kollar inte om frågan finns sedan tidigare
-	* @param String text - frågan
-	* @param String svar - svaret på frågan
-	* @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
-	* @return boolean skapad Ja/Nej.
+	* @param int kategoriPos - positionen av den slumpade kategorin
+	* @return ArrayList<String> med fråga och svar
 	*/
-	//public boolean hamtaNastaFraga(int kategoriPos)
+	public ArrayList<String> hamtaNastaFraga(int kategoriPos)
 	{
-		//Variabler
-		//int kategoriPos;
-	
-		//TODO
+		return kategoriLista.get(kategoriPos).hamtaNastaFrager();
 	}
         
 	//-----------------------------------------Privata Metoder -------------------------------------------------    
