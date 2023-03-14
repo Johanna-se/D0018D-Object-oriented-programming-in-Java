@@ -211,7 +211,7 @@ public class FrageBank
     * @param int frageID - frågans ID
     * @return boolean borttagen Ja/Nej.
     */
-    public boolean taBortFraga(String kategori, int frageID)
+    public boolean taBortFraga(int frageID)
     {
     	//Variabler
     	boolean borttagen;
