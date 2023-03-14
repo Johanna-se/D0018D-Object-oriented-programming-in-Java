@@ -54,7 +54,7 @@ public class testKlass
 		
 		//Plocka bort en kategori
 		kategoriBorttagen = frageBank.taBortKategori("Städer");
-		System.out.println("Kategori Städer borta(true): " + kategoriSkapad);
+		System.out.println("Kategori Städer borta(true): " + kategoriBorttagen);
 		kategoriLista = frageBank.getKategoriNamn();
 		System.out.println("Lista med kategorier: "); 
 		for (String string: kategoriLista)
@@ -62,7 +62,7 @@ public class testKlass
 			System.out.println(string); 
 		}
 		kategoriBorttagen = frageBank.taBortKategori("Städer");
-		System.out.println("Kategori Städer borta igen(false): " + kategoriSkapad);
+		System.out.println("Kategori Städer borta igen(false): " + kategoriBorttagen);
     }
 	
 }
