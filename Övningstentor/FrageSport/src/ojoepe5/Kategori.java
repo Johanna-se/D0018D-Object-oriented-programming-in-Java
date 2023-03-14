@@ -5,6 +5,10 @@
 
 package ojoepe5;
 
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Kategori 
@@ -23,6 +27,51 @@ public class Kategori
     }
     
     //--------------------------------Metoder för IO--------------------------------------------
+    
+    /**
+    * Metod för att kunna läsa objected från en stream. behövs för att implementera Serializable 
+    * @param ObjectOutputStream streamUt
+    * @return void
+    */
+    private void readObject(ObjectInputStream streamIn) throws ClassNotFoundException, IOException
+    {
+        try
+        {
+        	frageLista = (ArrayList <Fraga>) streamIn.readObject();
+        	kategori = streamIn.readUTF();
+        	nastaFraga = 0;
+        }
+        catch (EOFException exc)
+        {
+            //Slut på inläsningen, 
+        }
+        catch (ClassNotFoundException ce)
+        {
+            throw new ClassNotFoundException();
+        }
+        catch (IOException e)
+        {
+            throw new IOException();
+        }
+     }
+     
+     /**
+     * Metod för att kunna läsa objected till en stream. behövs för att implementera Serializable 
+     * @param ObjectOutputStream streamUt
+     * @return void
+     */
+     private void writeObject(ObjectOutputStream streamUt) throws IOException
+     {
+         try
+         {
+        	 streamUt.writeObject(frageLista);
+             streamUt.writeUTF(kategori);
+         }
+         catch (IOException e)
+         {
+             throw new IOException();
+         }
+     }
     
     //-------------------------------Get metoder-----------------------------------
     public String getNamn()
@@ -43,5 +92,5 @@ public class Kategori
     	
     	//Lägg till i listan
     	frageLista.add(fraga);
-     }
+    }
 }
