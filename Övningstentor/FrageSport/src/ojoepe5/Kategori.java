@@ -213,6 +213,8 @@ public class Kategori implements Serializable
     	
     	//Hämta svaret och lägg på pos 1
     	arrayAttReturnera.add(frageLista.get(nastaFraga).getSvar());
+    	
+    	nastaFraga++;
 
     	 return arrayAttReturnera;
 	
