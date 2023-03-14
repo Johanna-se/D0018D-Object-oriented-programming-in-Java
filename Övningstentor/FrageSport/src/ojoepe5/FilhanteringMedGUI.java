@@ -19,13 +19,13 @@ public class FilhanteringMedGUI
     private FileNameExtensionFilter filter;
     
     //Skapa patientregister
-    private PatientRegister patientRegister;
+    private FrageBank frageBank;
 	
 	// Konstruktorer
-    public FilhanteringMedGUI (PatientRegister register)
+    public FilhanteringMedGUI (FrageBank frageBank)
     {
         //Skapa en bank
-    	patientRegister = register;
+    	this.frageBank = frageBank;
     	
     	//Skapa filhanteraren 
         //Källor:
@@ -45,7 +45,7 @@ public class FilhanteringMedGUI
     * Metod för att spara data i ett register till en fil samt hanterar användarens val.
     * @return void
     */
-    public void sparaRegister()
+    public void sparaFrageBank()
     {
         //Sätt filter
         hanteraFil.setFileFilter(filter);
@@ -91,7 +91,7 @@ public class FilhanteringMedGUI
     * Metod för att ladda data för ett register in i programmet från en fil samt hanterar användarens val.
     * @return void
     */
-    public PatientRegister laddaRegister()
+    public FrageBank laddaRegister()
     {
         //Sätt filter
         hanteraFil.setFileFilter(filter);
@@ -114,7 +114,7 @@ public class FilhanteringMedGUI
                     try
                     {
                         ObjectInputStream infil = new ObjectInputStream(new FileInputStream(fil));
-                        patientRegister = (PatientRegister) infil.readObject(); //Läs in från fil
+                        frageBank = (FrageBank) infil.readObject(); //Läs in från fil
                         infil.close();
                         JOptionPane.showMessageDialog(null, "Data laddades"); //Meddela användaren att banken laddades
                     }
@@ -139,7 +139,7 @@ public class FilhanteringMedGUI
                      break;
             }
         }
-        return patientRegister;
+        return frageBank;
     }
 
     //------------------------------------------------Privata metoder ------------------------------------------------
@@ -154,7 +154,7 @@ public class FilhanteringMedGUI
         try
         {
             ObjectOutputStream utfil = new ObjectOutputStream (new FileOutputStream(fil));
-            utfil.writeObject(patientRegister);
+            utfil.writeObject(frageBank);
             utfil.close();
             JOptionPane.showMessageDialog(null, "Data sparades");
         }
