@@ -231,16 +231,21 @@ public class FrageBank
     
     /**
 	* Metod för att skapa en fråga
-	* NOTE: Jag kollar inte om frågan finns sedan tidigare
-	* @param String text - frågan
-	* @param String svar - svaret på frågan
-	* @param String kategoriNamn - vilken kategorti frågan tillhör NOTE: I GUIet är det tänkt att en lista ska skapas såa att användaren kan välja och slipper skriva in denna
-	* @return boolean skapad Ja/Nej.
+	* @param String kategoriNamn - vilken kategorti frågan tillhör 
+	* @return ArrayList<String> - lista med frågeID, fråga och svar
 	*/
-	//public boolean hamtaListaMedFragor(String text, String svar, String kategoriNamn)
+	public ArrayList<String> hamtaListaMedFragor(String kategoriNamn)
 	{
 		//Variabler
-		//int kategoriPos;
+    	int kategoriPos = -1;
+    	
+    	kategoriPos = finnsKategori(kategori);
+    					
+    	//Om kategorin ej hittades
+    	if (kategoriPos == -1)
+    	{
+    		return false;
+    	}
 
 		//TODO
      }
