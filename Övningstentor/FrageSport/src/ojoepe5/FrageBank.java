@@ -238,14 +238,20 @@ public class FrageBank
 	{
 		//Variabler
     	int kategoriPos = -1;
+    	ArrayList<String> arrayAttReturnera = new ArrayList<String>();
     	
-    	kategoriPos = finnsKategori(kategori);
+    	//Hitta kategorin i listan
+    	kategoriPos = finnsKategori(kategoriNamn);
     					
     	//Om kategorin ej hittades
     	if (kategoriPos == -1)
     	{
-    		return false;
+    		return arrayAttReturnera;
     	}
+    	
+    	arrayAttReturnera = kategoriLista.get(kategoriPos).hamtaAllaFrager();
+    	
+    	return arrayAttReturnera;
 
 		//TODO
      }
