@@ -157,6 +157,32 @@ public class Kategori
 	
      }
 	
+	/**
+	* Metod för att hämta lista med frågor
+	* @param int frageID 
+	* @return ArrayList<String> lista med frågor
+	*/
+	public ArrayList<String> taBortFraga()
+	{
+		//Variabler
+		int pos = -1;
+		
+		//Hitta korrekt fråga
+		pos = finnsFrageID(frageID);
+		
+		//Om frågeID ej hittades
+		if (pos == -1)
+		{
+			return false;
+		}
+		
+		//Ta bort frågan
+		frageLista.remove(pos);
+		
+		return true;
+	
+     }
+	
 	//-----------------------------------------Privata Metoder -------------------------------------------------    
     
 	/**
