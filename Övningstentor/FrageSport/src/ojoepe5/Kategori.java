@@ -98,6 +98,7 @@ public class Kategori
 	* Metod för att editera en fråga
 	* @param String text - ny text till frågan
 	* @param String svar - svaret på frågan
+	* @param int frageID 
 	* @return boolean ändrad Ja/Nej.
 	*/
 	public boolean editeraFraga(String text, String svar, int frageID)
@@ -106,13 +107,7 @@ public class Kategori
 		int pos = -1;
 		
 		//Hitta korrekt fråga
-		for (Fraga fraga : frageLista)
-		{
-			if (frageID == fraga.getfrageID())
-			{
-				pos = frageLista.indexOf(fraga);
-			}
-		}
+		pos = finnsFrageID(frageID);
 		
 		//Om frågeID ej hittades
 		if (pos == -1)
@@ -135,6 +130,54 @@ public class Kategori
 		return true;
 	
      }
+	
+	/**
+	* Metod för att ta bort en fråga
+	* @param int frageID 
+	* @return boolean borttagen Ja/Nej.
+	*/
+	public boolean taBortFraga(int frageID)
+	{
+		//Variabler
+		int pos = -1;
+		
+		//Hitta korrekt fråga
+		pos = finnsFrageID(frageID);
+		
+		//Om frågeID ej hittades
+		if (pos == -1)
+		{
+			return false;
+		}
+		
+		//Ta bort frågan
+		frageLista.remove(pos);
+		
+		return true;
+	
+     }
+	
+	//-----------------------------------------Privata Metoder -------------------------------------------------    
+    
+	/**
+	* Privat metod för att kolla om frågan finns
+	* @param int frageID 
+	* @return int, om frågeID finns returnera position i lista, om ej returnera -1
+	*/
+	private int finnsFrageID(int frageID)
+	{
+		//Hitta korrekt fråga
+		for (Fraga fraga : frageLista)
+		{
+			if (frageID == fraga.getfrageID())
+			{
+				return frageLista.indexOf(fraga);
+			}
+		}
+	            
+		//Om loopen ej hittar 
+		return -1;
+	}
     
     
     
