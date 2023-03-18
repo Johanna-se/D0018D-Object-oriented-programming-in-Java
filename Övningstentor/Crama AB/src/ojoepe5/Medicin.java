@@ -12,10 +12,11 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Medicin 
+public class Medicin implements Serializable
 {
     private String medicinNamn;
     private int mangd;

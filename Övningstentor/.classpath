@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Crama AB/src"/>
+	<classpathentry kind="src" path="FrageSport/src"/>
+	<classpathentry kind="output" path="Crama AB/bin"/>
+</classpath>
